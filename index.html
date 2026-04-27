@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>GOLF WANG Y2K</title>
+<title>Golf Wang</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Monoton&family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
 
 <style>
 
@@ -17,296 +17,293 @@ box-sizing:border-box;
 
 body{
 font-family:'Space Grotesk',sans-serif;
-background:
-radial-gradient(circle at 20% 20%, hotpink 0%, transparent 30%),
-radial-gradient(circle at 80% 30%, cyan 0%, transparent 30%),
-linear-gradient(135deg,#4b0000,#890000,#ff0055);
+background:#7a0000;
 overflow-x:hidden;
-color:white;
+color:#111;
 }
 
-/* floating y2k blobs */
-.blob{
+/* playful floating shapes */
+.shape{
 position:fixed;
 border-radius:50%;
-filter:blur(90px);
 z-index:-1;
-animation:float 8s infinite alternate ease-in-out;
+opacity:.4;
 }
 
-.b1{
-width:280px;
-height:280px;
-background:#00ffff;
-top:40px;
+.s1{
+height:240px;
+width:240px;
+background:#ffea00;
+top:-60px;
 left:-60px;
 }
 
-.b2{
-width:350px;
-height:350px;
-background:#ff00cc;
-right:-90px;
-bottom:80px;
-animation-duration:12s;
+.s2{
+height:180px;
+width:180px;
+background:#6aff8f;
+right:70px;
+top:120px;
 }
 
-@keyframes float{
-to{
-transform:translateY(50px) rotate(30deg);
-}
+.s3{
+height:280px;
+width:280px;
+background:#ff80c8;
+bottom:-80px;
+left:10%;
 }
 
 
 /* HERO */
 .hero{
+padding:70px 8%;
 min-height:100vh;
 display:flex;
 align-items:center;
 justify-content:center;
-padding:70px 8%;
-position:relative;
 }
 
-.hero-box{
+.hero-wrap{
 display:grid;
-grid-template-columns:1fr 1fr;
+grid-template-columns:1.1fr .9fr;
 gap:70px;
 align-items:center;
 }
 
-/* logo image */
-.hero img{
-width:100%;
-max-width:700px;
-border:5px solid #fff;
-box-shadow:
-0 0 40px hotpink,
-0 0 70px cyan;
-transform:rotate(-3deg);
-background:#eee;
-}
-
-/* chrome title */
-.hero h1{
-font-family:'Monoton',cursive;
-font-size:110px;
-line-height:1;
-background:linear-gradient(to bottom,#fff,#fffb00,#ff66ff);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-text-shadow:
-0 0 20px cyan,
-0 0 30px hotpink;
-}
-
-.hero h2{
-font-size:42px;
-margin-top:25px;
-color:#7dff5f;
+.hero-img{
+background:#f4f1eb;
+padding:30px;
+border:6px solid #111;
+box-shadow:18px 18px 0 #ffea00;
 transform:rotate(-2deg);
 }
 
-.hero p{
-margin-top:30px;
-font-size:20px;
-line-height:1.8;
-max-width:540px;
+.hero-img img{
+width:100%;
+display:block;
 }
 
-/* sticker buttons */
-.sticker{
-display:inline-block;
-margin-top:35px;
-background:yellow;
-color:black;
-padding:15px 35px;
-font-weight:900;
-transform:rotate(-5deg);
-box-shadow:8px 8px 0 black;
+.hero-text{
+background:#b7ff63;
+padding:50px;
+border:5px solid #111;
+transform:rotate(2deg);
+box-shadow:-18px 18px 0 #ff9fd5;
+}
+
+.hero-text h1{
+font-family:'Abril Fatface',serif;
+font-size:90px;
+line-height:.9;
+margin-bottom:20px;
+}
+
+.hero-text h3{
+font-size:34px;
+margin-bottom:25px;
+}
+
+.hero-text p{
+font-size:20px;
+line-height:1.8;
 }
 
 /* ABOUT */
 .about{
 padding:120px 10%;
 text-align:center;
-position:relative;
+color:#fff7ec;
+}
+
+.about-box{
+background:#ff8dc6;
+padding:70px;
+border:6px solid #111;
+box-shadow:20px 20px 0 #7dff86;
+max-width:1050px;
+margin:auto;
+transform:rotate(-1deg);
 }
 
 .about h2{
-font-family:'Monoton';
-font-size:70px;
+font-family:'Abril Fatface',serif;
+font-size:72px;
+color:#111;
 margin-bottom:30px;
-color:#00ffff;
 }
 
 .about p{
-max-width:900px;
-margin:auto;
-font-size:22px;
-line-height:1.9;
+font-size:30px;
+line-height:1.7;
+color:#111;
 }
 
-/* CHAOTIC LOOKBOOK */
+
+/* GOLF COLLAGE */
 .lookbook{
-padding:100px 5%;
+padding:120px 6%;
 position:relative;
 min-height:1200px;
 }
 
-.card{
+.look-title{
+text-align:center;
+font-family:'Abril Fatface';
+font-size:75px;
+color:#fff;
+margin-bottom:80px;
+}
+
+/* scattered magazine style */
+.polaroid{
 position:absolute;
-background:white;
-padding:15px;
-box-shadow:
-0 20px 50px rgba(0,0,0,.5),
-0 0 25px hotpink;
+background:#fff;
+padding:16px;
+border:4px solid #111;
 transition:.4s;
 }
 
-.card:hover{
-transform:scale(1.08) rotate(0deg);
-z-index:20;
+.polaroid:hover{
+transform:scale(1.06) rotate(0deg);
+z-index:10;
 }
 
-.card img{
-display:block;
+.polaroid img{
 width:100%;
+display:block;
 }
 
-/* chaotic scattered placements */
-.c1{
-width:280px;
-top:150px;
+.p1{
+width:290px;
 left:7%;
-transform:rotate(-12deg);
-}
-
-.c2{
-width:340px;
-top:120px;
-right:10%;
-transform:rotate(9deg);
-}
-
-.c3{
-width:430px;
-top:470px;
-left:18%;
-transform:rotate(-6deg);
-}
-
-.c4{
-width:300px;
-top:580px;
-right:15%;
-transform:rotate(11deg);
-}
-
-.c5{
-width:370px;
-top:860px;
-left:42%;
+top:220px;
 transform:rotate(-8deg);
+box-shadow:12px 12px 0 #ffea00;
+}
+
+.p2{
+width:330px;
+right:9%;
+top:160px;
+transform:rotate(8deg);
+box-shadow:12px 12px 0 #7dff86;
+}
+
+.p3{
+width:430px;
+left:20%;
+top:500px;
+transform:rotate(-4deg);
+box-shadow:12px 12px 0 #ff8dc6;
+}
+
+.p4{
+width:300px;
+right:14%;
+top:620px;
+transform:rotate(10deg);
+box-shadow:12px 12px 0 #82e7ff;
+}
+
+.p5{
+width:380px;
+left:40%;
+top:890px;
+transform:rotate(-7deg);
+box-shadow:12px 12px 0 #ffea00;
 }
 
 
-/* contact section */
+
+/* INFO */
 .info{
-margin-top:120px;
-background:
-linear-gradient(45deg,#fff6a7,#ffd0f7);
-color:#111;
-padding:100px 10%;
-border-top:6px solid black;
+margin-top:140px;
+background:#f3e7d6;
+padding:120px 10%;
+border-top:8px solid #111;
 }
 
 .info-wrap{
 display:grid;
 grid-template-columns:1fr 1fr;
-gap:80px;
+gap:90px;
 align-items:center;
 }
 
-.info h2{
-font-family:'Monoton';
-font-size:60px;
+.contact{
+background:#fff;
+padding:60px;
+border:5px solid #111;
+box-shadow:18px 18px 0 #b7ff63;
+transform:rotate(-2deg);
+}
+
+.contact h2{
+font-family:'Abril Fatface';
+font-size:62px;
 margin-bottom:30px;
 }
 
-.info p{
-font-size:24px;
-margin:18px 0;
+.contact p{
+font-size:28px;
+margin:20px 0;
+line-height:1.5;
 }
 
-/* Tyler photo */
+.tyler{
+text-align:center;
+}
+
 .tyler img{
-width:420px;
+width:430px;
 max-width:100%;
-border:6px solid white;
+border:6px solid #111;
+box-shadow:-18px 18px 0 #ff8dc6;
 transform:rotate(4deg);
-box-shadow:
-20px 20px 0 hotpink,
--20px -20px 0 cyan;
-}
-
-
-/* silly floating stickers */
-.star{
-position:absolute;
-font-size:70px;
-animation:spin 8s linear infinite;
-}
-
-.s1{
-top:80px;
-right:8%;
-}
-
-.s2{
-top:700px;
-left:10%;
-}
-
-@keyframes spin{
-to{
-transform:rotate(360deg);
-}
 }
 
 footer{
-background:black;
-color:#7dff5f;
-padding:40px;
+background:#111;
+color:#ffea00;
 text-align:center;
-letter-spacing:4px;
+padding:45px;
 font-weight:700;
+letter-spacing:3px;
 }
+
 
 /* mobile */
 @media(max-width:900px){
 
-.hero-box,
+.hero-wrap,
 .info-wrap{
 grid-template-columns:1fr;
+}
+
+.hero-text{
 text-align:center;
 }
 
-.hero h1{
-font-size:65px;
+.hero-text h1{
+font-size:60px;
 }
 
-.card{
-position:relative;
-margin:60px auto;
-top:auto;
-left:auto;
-right:auto;
-transform:none !important;
+.about p{
+font-size:22px;
 }
 
 .lookbook{
 min-height:auto;
+}
+
+.polaroid{
+position:relative;
+top:auto;
+left:auto;
+right:auto;
+margin:50px auto;
+transform:none !important;
 }
 
 }
@@ -315,80 +312,72 @@ min-height:auto;
 </head>
 <body>
 
-<div class="blob b1"></div>
-<div class="blob b2"></div>
+<div class="shape s1"></div>
+<div class="shape s2"></div>
+<div class="shape s3"></div>
 
 
+<!-- HERO -->
 <section class="hero">
+<div class="hero-wrap">
 
-<div class="hero-box">
+<div class="hero-img">
+<img src="Golf Logo (2).png">
+</div>
 
-<!-- YOUR NEW FIRST IMAGE -->
-<img src="Golf Logo (2).png" alt="Golf Logo">
-
-<div>
+<div class="hero-text">
 <h1>GOLF<br>WANG</h1>
-
-<h2>Odd Future Y2K Energy</h2>
+<h3>Tyler, the Creator</h3>
 
 <p>
-Bright chaos. Neon rebellion.
-Cartoon luxury mixed with skate culture,
-music, weird graphics and Tyler’s DIY
-internet-era aesthetic.
+Bright colors. Unusual designs.
+A little weird. A little luxury.
+Very Golf.
 </p>
 
-<div class="sticker">
-SHOP THE CHAOS
 </div>
 
 </div>
-
-</div>
-
 </section>
 
 
 
+<!-- KEEPING YOUR ORIGINAL TEXT -->
 <section class="about">
-
-<div class="star s1">✦</div>
+<div class="about-box">
 
 <h2>ABOUT</h2>
 
 <p>
-Golf Wang launched in 2011 as Tyler, the Creator’s
-wild fashion playground — loud colors, twisted humor,
-preppy gone weird, and heavy Y2K internet nostalgia.
-It feels part luxury label, part skate zine, part cartoon.
+GolfWang is a fashion/streetwear brand created by Tyler, the Creator. It started in 2011, the style of clothing is bright colours, and unusual designs. Tyler expresses himself through his music and his clothes/brand. The brand is GolfWang because it’s a remix of Wolf Gang, from his music group Odd Future.
 </p>
 
+</div>
 </section>
-
 
 
 
 <section class="lookbook">
 
-<div class="star s2">☻</div>
+<div class="look-title">COLLECTION</div>
 
-<div class="card c1">
+<div class="polaroid p1">
 <img src="collage.png">
 </div>
 
-<div class="card c2">
+<div class="polaroid p2">
 <img src="collage.png">
 </div>
 
-<div class="card c3">
+<div class="polaroid p3">
 <img src="collage.png">
 </div>
 
-<div class="card c4">
+<div class="polaroid p4">
 <img src="collage.png">
 </div>
 
-<div class="card c5">
+<div class="polaroid p5">
 <img src="collage.png">
 </div>
 
@@ -397,29 +386,34 @@ It feels part luxury label, part skate zine, part cartoon.
 
 
 <section class="info">
-
 <div class="info-wrap">
 
-<div>
-<h2>CONTACT</h2>
+<div class="contact">
+<h2>FOR MORE INFORMATION:</h2>
 
-<p>customerservice@golfwang.com</p>
-<p>+1 833-934-1899</p>
-<p>350 N Fairfax Ave, Los Angeles</p>
-<p>(323) 879-9770</p>
-<p>golfwang.com</p>
+<p>Email: customerservice@golfwang.com</p>
+
+<p>Number: +1833-934-1899</p>
+
+<p>Physical Store: 350 N Fairfax Ave, Los Angeles</p>
+
+<p>LA store phone: (323) 879-9770</p>
+
+<p>Official website: wolfgang.com</p>
+
 </div>
+
 
 <div class="tyler">
 <img src="tyler-footer.png">
 </div>
 
 </div>
-
 </section>
 
+
 <footer>
-✦ GOLF WANG WORLDWIDE ✦
+GOLF WANG © ODD FUTURE
 </footer>
 
 </body>
