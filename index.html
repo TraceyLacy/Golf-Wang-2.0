@@ -1,13 +1,15 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Golf Wang</title>
+<title>Golf Wang Scrapbook</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700&family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
+
 *{
 margin:0;
 padding:0;
@@ -15,250 +17,257 @@ box-sizing:border-box;
 }
 
 body{
+background:#7d0000;
 font-family:'Space Grotesk',sans-serif;
-background:#7a0000;
 overflow-x:hidden;
 }
 
-/* dreamy blobs */
+/* dreamy background blobs */
+
 .blob{
 position:fixed;
 border-radius:50%;
-filter:blur(80px);
-opacity:.45;
-z-index:-1;
+filter:blur(100px);
+opacity:.35;
+z-index:-5;
 }
 
 .b1{
-height:280px;
-width:280px;
-background:#fff36f;
-left:-80px;
-top:-40px;
+height:300px;
+width:300px;
+background:#fff26d;
+top:-80px;
+left:-70px;
 }
 
 .b2{
-height:220px;
-width:220px;
-background:#ffc7e6;
-right:40px;
-top:120px;
+height:280px;
+width:280px;
+background:#ffb7de;
+right:-80px;
+top:300px;
 }
 
 .b3{
 height:320px;
 width:320px;
-background:#b9ff8f;
-bottom:-120px;
-left:20%;
+background:#c6ff85;
+bottom:-100px;
+left:30%;
 }
 
-/* flowers */
-.flower{
+/* sticker flowers */
+
+.sticker{
 position:absolute;
-font-size:50px;
+font-size:70px;
+z-index:50;
 }
 
-.f1{top:100px;left:7%;}
-.f2{top:700px;right:10%;}
-.f3{bottom:300px;left:12%;}
+.s1{top:70px;left:70px;}
+.s2{top:770px;right:120px;}
+.s3{bottom:320px;left:60px;}
+.s4{bottom:80px;right:60px;}
 
 
-/* HERO */
+/* ---------- HERO ---------- */
+
 .hero{
-min-height:100vh;
-display:flex;
-align-items:center;
-justify-content:center;
-padding:80px 8%;
+padding:90px 6%;
 }
 
 .hero-wrap{
-display:grid;
-grid-template-columns:1.1fr .9fr;
+display:flex;
 gap:70px;
 align-items:center;
+justify-content:center;
+flex-wrap:wrap;
 }
 
-.hero-image{
-background:#f6f0e8;
-padding:35px;
+.polaroid{
+background:#fff6dc;
+padding:25px;
 border-radius:35px;
 box-shadow:
-20px 20px 0 #ffe45e,
--15px -15px 0 #ffc4e6;
-transform:rotate(-2deg);
+18px 18px 0 #ffe96b,
+-14px -14px 0 #ffc7e7;
+transform:rotate(-4deg);
 }
 
-.hero-image img{
-width:100%;
+.polaroid img{
+width:470px;
+max-width:100%;
 display:block;
-border-radius:25px;
+border-radius:22px;
 }
 
-.hero-text{
-background:#e8f8bf;
+.title-card{
+background:#e9f8b7;
 padding:60px;
-border-radius:40px;
+border-radius:38px;
+max-width:560px;
 transform:rotate(2deg);
-box-shadow:18px 18px 0 #ffb9de;
+box-shadow:18px 18px 0 #ffbddf;
 }
 
-.hero-text h1{
+.title-card h1{
 font-family:'Cormorant Garamond',serif;
-font-size:110px;
-line-height:.88;
-color:#111;
+font-size:105px;
+line-height:.9;
 }
 
-.hero-text h3{
-font-size:38px;
-margin-top:18px;
+.title-card h3{
+font-size:42px;
 font-style:italic;
+margin:20px 0;
 }
 
-.hero-text p{
-margin-top:30px;
-font-size:22px;
-line-height:1.8;
+.title-card p{
+font-size:26px;
+line-height:1.7;
 }
 
 .button{
 display:inline-block;
 margin-top:35px;
-background:#fff;
-padding:16px 40px;
+background:white;
+padding:18px 42px;
 border-radius:40px;
 font-weight:700;
 box-shadow:8px 8px 0 #111;
 }
 
 
-/* ABOUT */
+/* ---------- ABOUT ---------- */
+
 .about{
-padding:120px 10%;
-text-align:center;
+padding:100px 9%;
 }
 
 .about-box{
-background:#ffd6eb;
-padding:80px;
-border-radius:50px;
-box-shadow:18px 18px 0 #bfff8f;
-max-width:1100px;
+background:#ffd8ea;
+max-width:1200px;
 margin:auto;
+padding:70px;
+border-radius:45px;
+box-shadow:18px 18px 0 #beff8d;
+text-align:center;
 }
 
 .about h2{
 font-family:'Cormorant Garamond',serif;
-font-size:78px;
-margin-bottom:35px;
+font-size:76px;
+margin-bottom:30px;
 }
 
 .about p{
 font-size:30px;
-line-height:1.75;
+line-height:1.7;
 }
 
 
-/* COLLECTION */
+
+/* -------- COLLECTION COLLAGE ------- */
+
 .lookbook{
-padding:120px 6%;
+padding:100px 4%;
 position:relative;
-min-height:1750px;
+min-height:2100px;
 }
 
 .lookbook h2{
 text-align:center;
-font-size:82px;
 font-family:'Cormorant Garamond',serif;
-margin-bottom:90px;
-color:#fff7ef;
+font-size:95px;
+margin-bottom:120px;
+color:#fff6e7;
 }
 
 .card{
 position:absolute;
-background:#fffef8;
-padding:18px;
-border-radius:28px;
+background:#fff;
+padding:16px;
+border-radius:25px;
+box-shadow:0 18px 35px rgba(0,0,0,.25);
 transition:.4s;
-box-shadow:0 18px 40px rgba(0,0,0,.2);
 }
 
 .card:hover{
-transform:scale(1.05) rotate(0deg);
-z-index:30;
+transform:scale(1.06) rotate(0deg);
+z-index:100;
 }
 
 .card img{
 width:100%;
 display:block;
-border-radius:18px;
+border-radius:15px;
 }
 
-/* original scattered */
+/* SCATTERED LIKE YOUR CANVA */
+
 .c1{
-width:290px;
-left:8%;
-top:230px;
-transform:rotate(-9deg);
+width:300px;
+left:3%;
+top:240px;
+transform:rotate(-7deg);
 }
 
 .c2{
-width:340px;
-left:24%;
-top:180px;
-transform:rotate(6deg);
+width:330px;
+left:18%;
+top:320px;
+transform:rotate(5deg);
 }
 
 .c3{
-width:320px;
+width:300px;
 left:42%;
-top:320px;
+top:250px;
 transform:rotate(-4deg);
 }
 
 .c4{
 width:330px;
-right:14%;
-top:220px;
-transform:rotate(7deg);
+right:18%;
+top:320px;
+transform:rotate(6deg);
 }
 
 .c5{
-width:300px;
+width:290px;
 right:3%;
-top:240px;
-transform:rotate(-5deg);
+top:250px;
+transform:rotate(-4deg);
 }
 
-/* new scattered collage pieces */
 .c6{
-width:240px;
-left:27%;
-top:1080px;
-transform:rotate(8deg);
+width:230px;
+left:22%;
+top:950px;
+transform:rotate(-6deg);
 }
 
 .c7{
 width:360px;
-left:48%;
-top:1220px;
-transform:rotate(-6deg);
-}
-
-.c8{
-width:340px;
-right:8%;
-top:1280px;
+left:45%;
+top:860px;
 transform:rotate(7deg);
 }
 
+.c8{
+width:360px;
+right:4%;
+top:1120px;
+transform:rotate(-5deg);
+}
 
-/* INFO */
+
+
+/* -------- INFO -------- */
+
 .info{
-background:#f5eadc;
-padding:120px 10%;
+padding:130px 8%;
+background:#f5eadb;
 border-top-left-radius:90px;
 border-top-right-radius:90px;
 }
@@ -266,69 +275,62 @@ border-top-right-radius:90px;
 .info-wrap{
 display:grid;
 grid-template-columns:1fr 1fr;
-gap:90px;
+gap:80px;
 align-items:center;
 }
 
 .contact{
-background:#fff;
-padding:65px;
-border-radius:40px;
-box-shadow:20px 20px 0 #ffd3eb;
+background:#fffdf3;
+padding:70px;
+border-radius:45px;
+box-shadow:18px 18px 0 #ffd0e8;
 }
 
 .contact h2{
-font-size:66px;
 font-family:'Cormorant Garamond',serif;
+font-size:62px;
 margin-bottom:30px;
 }
 
 .contact p{
 font-size:28px;
 margin:18px 0;
-line-height:1.6;
-}
-
-.tyler{
-text-align:center;
 }
 
 .tyler img{
 width:500px;
 max-width:100%;
-border-radius:35px;
-transform:rotate(-3deg);
+border-radius:30px;
+transform:rotate(-4deg);
 box-shadow:
-25px 25px 0 #bfff8f,
--18px -18px 0 #ffb6dc,
-12px 12px 0 #fff36f;
+22px 22px 0 #fff16a,
+-15px -15px 0 #bfff8a;
 }
 
 footer{
 background:#111;
-color:#fff36f;
-text-align:center;
+color:#fff36d;
 padding:45px;
-letter-spacing:4px;
+text-align:center;
+letter-spacing:12px;
 font-weight:700;
 }
 
 
 /* mobile */
+
 @media(max-width:900px){
 
-.hero-wrap,
-.info-wrap{
-grid-template-columns:1fr;
-text-align:center;
-}
-
-.hero-text h1{
+.title-card h1{
 font-size:70px;
 }
 
 .about p{
 font-size:22px;
+}
+
+.info-wrap{
+grid-template-columns:1fr;
 }
 
 .lookbook{
@@ -340,11 +342,12 @@ position:relative;
 top:auto;
 left:auto;
 right:auto;
-margin:50px auto;
-transform:none !important;
+margin:40px auto;
+transform:none!important;
 }
 
 }
+
 </style>
 </head>
 <body>
@@ -353,26 +356,29 @@ transform:none !important;
 <div class="blob b2"></div>
 <div class="blob b3"></div>
 
-<div class="flower f1">✿</div>
-<div class="flower f2">❀</div>
-<div class="flower f3">✿</div>
+<div class="sticker s1">✿</div>
+<div class="sticker s2">☻</div>
+<div class="sticker s3">★</div>
+<div class="sticker s4">❀</div>
 
 
-<!-- HERO -->
+
 <section class="hero">
+
 <div class="hero-wrap">
 
-<div class="hero-image">
+<div class="polaroid">
 <img src="Golf Logo (2).png">
 </div>
 
-<div class="hero-text">
+<div class="title-card">
 <h1>GOLF<br>WANG</h1>
 <h3>Tyler, the Creator</h3>
 
 <p>
 Bright colors. Unusual designs.
-A little weird. A little luxury.
+A little weird.
+A little luxury.
 Very Golf.
 </p>
 
@@ -381,19 +387,22 @@ ENTER THE CLUB
 </div>
 
 </div>
+
 </div>
+
 </section>
 
 
 
-<!-- ABOUT -->
 <section class="about">
 <div class="about-box">
 
 <h2>ABOUT</h2>
 
 <p>
-GolfWang is a fashion/streetwear brand created by Tyler, the Creator. It started in 2011, the style of clothing is bright colours, and unusual designs. Tyler expresses himself through his music and his clothes/brand. The brand is GolfWang because it’s a remix of Wolf Gang, from his music group Odd Future.
+GolfWang is a fashion/streetwear brand created by Tyler, the Creator.
+It started in 2011 with bright colours and unusual designs.
+The brand is GolfWang because it remixes Wolf Gang from Odd Future.
 </p>
 
 </div>
@@ -401,7 +410,6 @@ GolfWang is a fashion/streetwear brand created by Tyler, the Creator. It started
 
 
 
-<!-- COLLECTION -->
 <section class="lookbook">
 
 <h2>COLLECTION</h2>
@@ -442,24 +450,18 @@ GolfWang is a fashion/streetwear brand created by Tyler, the Creator. It started
 
 
 
-<!-- INFO -->
 <section class="info">
 
 <div class="info-wrap">
 
 <div class="contact">
-
 <h2>FOR MORE INFORMATION:</h2>
 
 <p>Email: customerservice@golfwang.com</p>
-
 <p>Number: +1833-934-1899</p>
-
-<p>Physical Store: 350 N Fairfax Ave, Los Angeles</p>
-
-<p>LA store phone: (323) 879-9770</p>
-
-<p>Official website: wolfgang.com</p>
+<p>Physical Store: 350 N Fairfax Ave</p>
+<p>LA Store: (323)879-9770</p>
+<p>Official website: golfwang.com</p>
 
 </div>
 
@@ -470,7 +472,6 @@ GolfWang is a fashion/streetwear brand created by Tyler, the Creator. It started
 </div>
 
 </section>
-
 
 <footer>
 GOLF LE FLEUR WORLD
