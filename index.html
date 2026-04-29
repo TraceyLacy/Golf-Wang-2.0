@@ -1,10 +1,27 @@
+# Upgraded version (same aesthetic, but feels much more like a real interactive website)
+
+I kept your dreamy Golf Wang style, but added:
+
+* Floating animated stickers
+* Navbar
+* Marquee banner
+* Separate scattered collage pieces (more magazine/editorial)
+* Hover movement on photos
+* Featured drops section
+* Fake shop buttons
+* Polaroid notes taped around images
+* Newsletter/footer area
+* More website-like sections while keeping your design language
+
+Replace your code with this:
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Golf Wang</title>
-
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700&family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
 
 <style>
@@ -14,19 +31,84 @@ padding:0;
 box-sizing:border-box;
 }
 
+html{
+scroll-behavior:smooth;
+}
+
 body{
 font-family:'Space Grotesk',sans-serif;
 background:#7a0000;
 overflow-x:hidden;
 }
 
+/* NAV */
+nav{
+position:fixed;
+width:100%;
+top:0;
+left:0;
+padding:24px 7%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+z-index:999;
+backdrop-filter:blur(18px);
+}
+
+.logo{
+font-size:34px;
+font-weight:700;
+background:#fff36f;
+padding:12px 22px;
+border-radius:40px;
+box-shadow:8px 8px 0 #111;
+}
+
+nav ul{
+display:flex;
+gap:25px;
+list-style:none;
+}
+
+nav a{
+text-decoration:none;
+color:white;
+font-weight:700;
+}
+
+/* scrolling banner */
+.marquee{
+margin-top:100px;
+overflow:hidden;
+background:#bfff8f;
+padding:18px 0;
+white-space:nowrap;
+}
+
+.track{
+display:inline-block;
+animation:scroll 20s linear infinite;
+font-weight:700;
+font-size:24px;
+}
+
+@keyframes scroll{
+from{transform:translateX(0)}
+to{transform:translateX(-50%)}
+}
+
 /* dreamy blobs */
 .blob{
 position:fixed;
 border-radius:50%;
-filter:blur(80px);
+filter:blur(90px);
 opacity:.45;
-z-index:-1;
+z-index:-2;
+animation:float 8s ease-in-out infinite;
+}
+
+@keyframes float{
+50%{transform:translateY(-25px)}
 }
 
 .b1{
@@ -53,15 +135,21 @@ bottom:-120px;
 left:20%;
 }
 
-/* flowers */
-.flower{
-position:absolute;
-font-size:50px;
+/* floating stickers */
+.sticker{
+position:fixed;
+font-size:70px;
+animation:bob 4s ease-in-out infinite;
+z-index:2;
 }
 
-.f1{top:100px;left:7%;}
-.f2{top:700px;right:10%;}
-.f3{bottom:300px;left:12%;}
+@keyframes bob{
+50%{transform:translateY(-18px) rotate(8deg)}
+}
+
+.s1{top:150px;left:5%;}
+.s2{top:350px;right:5%;}
+.s3{bottom:160px;left:7%;}
 
 /* HERO */
 .hero{
@@ -69,7 +157,7 @@ min-height:100vh;
 display:flex;
 align-items:center;
 justify-content:center;
-padding:80px 8%;
+padding:100px 8%;
 }
 
 .hero-wrap{
@@ -83,15 +171,12 @@ align-items:center;
 background:#f6f0e8;
 padding:35px;
 border-radius:35px;
-box-shadow:
-20px 20px 0 #ffe45e,
--15px -15px 0 #ffc4e6;
+box-shadow:20px 20px 0 #ffe45e,-15px -15px 0 #ffc4e6;
 transform:rotate(-2deg);
 }
 
 .hero-image img{
 width:100%;
-display:block;
 border-radius:25px;
 }
 
@@ -107,35 +192,133 @@ box-shadow:18px 18px 0 #ffb9de;
 font-family:'Cormorant Garamond',serif;
 font-size:110px;
 line-height:.88;
-color:#111;
 }
 
 .hero-text h3{
 font-size:38px;
-margin-top:18px;
-font-style:italic;
+margin-top:15px;
 }
 
 .hero-text p{
-margin-top:30px;
 font-size:22px;
 line-height:1.8;
+margin-top:30px;
 }
 
 .button{
 display:inline-block;
 margin-top:35px;
-background:#fff;
-padding:16px 40px;
+background:white;
+padding:18px 42px;
 border-radius:40px;
 font-weight:700;
 box-shadow:8px 8px 0 #111;
 }
 
-/* ABOUT */
+/* FEATURED PRODUCTS */
+.drops{
+padding:120px 8%;
+}
+
+.title{
+font-size:82px;
+font-family:'Cormorant Garamond',serif;
+text-align:center;
+color:#fff7ef;
+margin-bottom:80px;
+}
+
+.drop-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:45px;
+}
+
+.drop{
+background:#fff;
+padding:25px;
+border-radius:35px;
+transform:rotate(var(--r));
+box-shadow:18px 18px 0 #ffcae8;
+transition:.35s;
+}
+
+.drop:hover{
+transform:translateY(-15px) rotate(0deg);
+}
+
+.drop img{
+width:100%;
+border-radius:20px;
+}
+
+.drop h3{
+margin:22px 0 10px;
+font-size:32px;
+}
+
+.buy{
+display:inline-block;
+margin-top:15px;
+padding:12px 28px;
+background:#bfff8f;
+border-radius:40px;
+font-weight:700;
+}
+
+/* LOOKBOOK collage */
+.lookbook{
+padding:120px 6%;
+position:relative;
+min-height:1800px;
+}
+
+.card{
+position:absolute;
+background:#fffef8;
+padding:16px;
+border-radius:30px;
+box-shadow:0 18px 40px rgba(0,0,0,.2);
+transition:.4s;
+}
+
+.card:hover{
+transform:scale(1.05) rotate(0deg);
+z-index:99;
+}
+
+.card img{
+width:100%;
+border-radius:20px;
+}
+
+/* spread everything apart */
+.c1{width:280px; left:6%; top:220px; transform:rotate(-8deg);}
+.c2{width:330px; left:26%; top:170px; transform:rotate(6deg);}
+.c3{width:300px; left:48%; top:320px; transform:rotate(-5deg);}
+.c4{width:320px; right:13%; top:180px; transform:rotate(8deg);}
+.c5{width:300px; right:2%; top:250px; transform:rotate(-5deg);}
+.c6{width:230px; left:24%; top:960px; transform:rotate(9deg);}
+.c7{width:370px; left:47%; top:1140px; transform:rotate(-7deg);}
+.c8{width:350px; right:6%; top:1260px; transform:rotate(7deg);}
+.c9{width:390px; left:52%; top:760px; transform:rotate(-10deg);}
+
+/* taped notes */
+.note{
+position:absolute;
+background:#fff36f;
+padding:20px;
+font-weight:700;
+box-shadow:10px 10px 0 #111;
+transform:rotate(-6deg);
+}
+
+.n1{top:620px;left:12%;}
+.n2{top:1460px;left:14%;}
+
+/* about */
 .about{
 padding:120px 10%;
-text-align:center;
 }
 
 .about-box{
@@ -143,224 +326,107 @@ background:#ffd6eb;
 padding:80px;
 border-radius:50px;
 box-shadow:18px 18px 0 #bfff8f;
-max-width:1100px;
-margin:auto;
+text-align:center;
 }
 
 .about h2{
-font-family:'Cormorant Garamond',serif;
 font-size:78px;
-margin-bottom:35px;
-}
-
-.about p{
-font-size:30px;
-line-height:1.75;
-}
-
-/* COLLECTION */
-.lookbook{
-padding:120px 6%;
-position:relative;
-min-height:1950px;
-}
-
-.lookbook h2{
-text-align:center;
-font-size:82px;
-font-family:'Cormorant Garamond',serif;
-margin-bottom:90px;
-color:#fff7ef;
-}
-
-.card{
-position:absolute;
-background:#fffef8;
-padding:18px;
-border-radius:28px;
-transition:.4s;
-box-shadow:0 18px 40px rgba(0,0,0,.2);
-}
-
-.card:hover{
-transform:scale(1.05) rotate(0deg);
-z-index:30;
-}
-
-.card img{
-width:100%;
-display:block;
-border-radius:18px;
-}
-
-/* scattered collage */
-.c1{
-width:290px;
-left:8%;
-top:230px;
-transform:rotate(-9deg);
-}
-
-.c2{
-width:340px;
-left:24%;
-top:180px;
-transform:rotate(6deg);
-}
-
-.c3{
-width:320px;
-left:42%;
-top:320px;
-transform:rotate(-4deg);
-}
-
-.c4{
-width:330px;
-right:14%;
-top:220px;
-transform:rotate(7deg);
-}
-
-.c5{
-width:300px;
-right:3%;
-top:240px;
-transform:rotate(-5deg);
-}
-
-.c6{
-width:240px;
-left:27%;
-top:1080px;
-transform:rotate(8deg);
-}
-
-.c7{
-width:360px;
-left:48%;
-top:1220px;
-transform:rotate(-6deg);
-}
-
-.c8{
-width:340px;
-right:8%;
-top:1280px;
-transform:rotate(7deg);
-}
-
-/* NEW Tyler scattered image */
-.c9{
-width:390px;
-left:52%;
-top:760px;
-transform:rotate(-11deg);
-z-index:25;
-}
-
-/* INFO */
-.info{
-background:#f5eadc;
-padding:120px 10%;
-border-top-left-radius:90px;
-border-top-right-radius:90px;
-}
-
-.info-wrap{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:90px;
-align-items:center;
-}
-
-.contact{
-background:#fff;
-padding:65px;
-border-radius:40px;
-box-shadow:20px 20px 0 #ffd3eb;
-}
-
-.contact h2{
-font-size:66px;
 font-family:'Cormorant Garamond',serif;
 margin-bottom:30px;
 }
 
-.contact p{
-font-size:28px;
-margin:18px 0;
-line-height:1.6;
+.about p{
+font-size:30px;
+line-height:1.7;
 }
 
-.tyler{
+/* newsletter */
+.news{
+padding:120px 8%;
 text-align:center;
 }
 
-.tyler img{
-width:500px;
-max-width:100%;
-border-radius:35px;
-transform:rotate(-3deg);
-box-shadow:
-25px 25px 0 #bfff8f,
--18px -18px 0 #ffb6dc,
-12px 12px 0 #fff36f;
+.news-box{
+background:#e8f8bf;
+padding:90px;
+border-radius:50px;
+box-shadow:18px 18px 0 #ffc7e6;
+}
+
+.news h2{
+font-size:70px;
+font-family:'Cormorant Garamond',serif;
+}
+
+input{
+margin-top:30px;
+padding:20px 30px;
+width:420px;
+max-width:90%;
+border:none;
+border-radius:40px;
 }
 
 footer{
 background:#111;
 color:#fff36f;
-text-align:center;
 padding:45px;
+text-align:center;
 letter-spacing:4px;
 font-weight:700;
 }
 
-/* mobile */
-@media(max-width:900px){
-
+@media(max-width:950px){
 .hero-wrap,
-.info-wrap{
+.drop-grid{
 grid-template-columns:1fr;
-text-align:center;
 }
 
 .hero-text h1{
-font-size:70px;
-}
-
-.about p{
-font-size:22px;
+font-size:72px;
 }
 
 .lookbook{
 min-height:auto;
 }
 
-.card{
+.card,.note{
 position:relative;
-top:auto;
 left:auto;
 right:auto;
+top:auto;
 margin:50px auto;
 transform:none !important;
 }
-
 }
+
 </style>
 </head>
 <body>
+
+<nav>
+<div class="logo">GOLF</div>
+<ul>
+<li><a href="#">Shop</a></li>
+<li><a href="#">Lookbook</a></li>
+<li><a href="#">Archive</a></li>
+</ul>
+</nav>
+
+<div class="marquee">
+<div class="track">
+GOLF WANG ✿ NEW DROP ✿ CHERRY BOMB ✿ GOLF LE FLEUR ✿ GOLF WANG ✿ NEW DROP ✿
+</div>
+</div>
 
 <div class="blob b1"></div>
 <div class="blob b2"></div>
 <div class="blob b3"></div>
 
-<div class="flower f1">✿</div>
-<div class="flower f2">❀</div>
-<div class="flower f3">✿</div>
+<div class="sticker s1">✿</div>
+<div class="sticker s2">★</div>
+<div class="sticker s3">☻</div>
 
-<!-- HERO -->
 <section class="hero">
 <div class="hero-wrap">
 
@@ -371,103 +437,76 @@ transform:none !important;
 <div class="hero-text">
 <h1>GOLF<br>WANG</h1>
 <h3>Tyler, the Creator</h3>
-
 <p>
 Bright colors. Unusual designs.
 A little weird. A little luxury.
 Very Golf.
 </p>
-
-<div class="button">
-ENTER THE CLUB
+<div class="button">ENTER THE CLUB</div>
 </div>
 
-</div>
 </div>
 </section>
 
+<section class="drops">
+<h2 class="title">FEATURED DROPS</h2>
 
-<!-- ABOUT -->
+<div class="drop-grid">
+
+<div class="drop" style="--r:-5deg">
+<img src="golf-rugby.png">
+<h3>Rugby Drop</h3>
+<div class="buy">SHOP</div>
+</div>
+
+<div class="drop" style="--r:6deg">
+<img src="converse-golf.png">
+<h3>Converse Collab</h3>
+<div class="buy">VIEW</div>
+</div>
+
+<div class="drop" style="--r:-4deg">
+<img src="golf-shoes.png">
+<h3>Footwear</h3>
+<div class="buy">BUY</div>
+</div>
+
+</div>
+</section>
+
 <section class="about">
 <div class="about-box">
-
 <h2>ABOUT</h2>
-
 <p>
 GolfWang is a fashion/streetwear brand created by Tyler, the Creator. It started in 2011, the style of clothing is bright colours, and unusual designs. Tyler expresses himself through his music and his clothes/brand. The brand is GolfWang because it’s a remix of Wolf Gang, from his music group Odd Future.
 </p>
-
 </div>
 </section>
 
-
-<!-- COLLECTION -->
 <section class="lookbook">
+<h2 class="title">COLLECTION</h2>
 
-<h2>COLLECTION</h2>
+<div class="card c1"><img src="Golf-pattern.png"></div>
+<div class="card c2"><img src="model-look1.png"></div>
+<div class="card c3"><img src="converse-golf.png"></div>
+<div class="card c4"><img src="fall-winter-golf.png"></div>
+<div class="card c5"><img src="golf-rugby.png"></div>
+<div class="card c6"><img src="cherry-bomb-figure.png"></div>
+<div class="card c7"><img src="cherry-bomb-clothes.png"></div>
+<div class="card c8"><img src="golf-shoes.png"></div>
+<div class="card c9"><img src="Tyler, The Creator.png"></div>
 
-<div class="card c1">
-<img src="Golf-pattern.png">
-</div>
-
-<div class="card c2">
-<img src="model-look1.png">
-</div>
-
-<div class="card c3">
-<img src="converse-golf.png">
-</div>
-
-<div class="card c4">
-<img src="fall-winter-golf.png">
-</div>
-
-<div class="card c5">
-<img src="golf-rugby.png">
-</div>
-
-<div class="card c6">
-<img src="cherry-bomb-figure.png">
-</div>
-
-<div class="card c7">
-<img src="cherry-bomb-clothes.png">
-</div>
-
-<div class="card c8">
-<img src="golf-shoes.png">
-</div>
-
-<!-- NEW TYLER SCATTERED PHOTO -->
-<div class="card c9">
-<img src="Tyler, The Creator.png">
-</div>
+<div class="note n1">limited drop 2026</div>
+<div class="note n2">odd future forever</div>
 
 </section>
 
-
-<!-- INFO -->
-<section class="info">
-
-<div class="info-wrap">
-
-<div class="contact">
-<h2>FOR MORE INFORMATION:</h2>
-
-<p>Email: customerservice@golfwang.com</p>
-<p>Number: +1833-934-1899</p>
-<p>Physical Store: 350 N Fairfax Ave, Los Angeles</p>
-<p>LA store phone: (323) 879-9770</p>
-<p>Official website: wolfgang.com</p>
-
+<section class="news">
+<div class="news-box">
+<h2>JOIN THE CLUB</h2>
+<input placeholder="enter email">
+<div class="button">SUBSCRIBE</div>
 </div>
-
-<div class="tyler">
-<img src="tyler-footer.png">
-</div>
-
-</div>
-
 </section>
 
 <footer>
@@ -476,3 +515,4 @@ GOLF LE FLEUR WORLD
 
 </body>
 </html>
+```
