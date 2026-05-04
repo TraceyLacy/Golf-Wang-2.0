@@ -155,7 +155,7 @@ transition:.3s;
 transform:translateY(-6px);
 }
 
-/* sections */
+/* interactive cards */
 .shop{
 padding:120px 8%;
 }
@@ -168,7 +168,6 @@ color:#fff7ef;
 margin-bottom:80px;
 }
 
-/* grid */
 .grid{
 display:grid;
 grid-template-columns:repeat(3,1fr);
@@ -202,7 +201,7 @@ border-radius:40px;
 font-weight:700;
 }
 
-/* lookbook */
+/* BIG SCATTERED LOOKBOOK */
 .lookbook{
 position:relative;
 min-height:2200px;
@@ -228,6 +227,7 @@ width:100%;
 border-radius:20px;
 }
 
+/* all separated individually */
 .c1{width:280px;left:5%;top:220px;transform:rotate(-8deg)}
 .c2{width:330px;left:24%;top:150px;transform:rotate(6deg)}
 .c3{width:310px;left:47%;top:290px;transform:rotate(-6deg)}
@@ -301,6 +301,7 @@ font-weight:700;
 .lookbook{min-height:auto}
 .card,.note{
 position:relative;
+left:auto;right:auto;top:auto;
 margin:50px auto;
 transform:none!important;
 }
@@ -308,6 +309,14 @@ transform:none!important;
 </style>
 </head>
 <body>
+
+<div class='blob b1'></div>
+<div class='blob b2'></div>
+<div class='blob b3'></div>
+
+<div class='sticker s1'>✿</div>
+<div class='sticker s2'>★</div>
+<div class='sticker s3'>🐝</div>
 
 <nav>
 <div class='logo'>GOLF</div>
@@ -318,7 +327,7 @@ transform:none!important;
 </nav>
 
 <div class='banner'>
-<div class='move'>CHERRY BOMB ✿ GOLF LE FLEUR ✿ NEW DROP ✿ ODD FUTURE FOREVER ✿</div>
+<div class='move'>CHERRY BOMB ✿ GOLF LE FLEUR ✿ NEW DROP ✿ ODD FUTURE FOREVER ✿ CHERRY BOMB ✿</div>
 </div>
 
 <section class='hero'>
@@ -332,7 +341,7 @@ transform:none!important;
 </div>
 </section>
 
-<!-- ✅ NEW ABOUT SECTION -->
+<!-- ABOUT SECTION -->
 <section id="about" class="shop">
 <h2 class="title">ABOUT</h2>
 <p style="max-width:800px;margin:0 auto;color:white;font-size:20px;line-height:1.8;text-align:center;">
@@ -342,27 +351,51 @@ The name “Golf Wang” comes from a remix of “Wolf Gang,” inspired by his 
 </p>
 </section>
 
-<!-- ✅ SHOP SECTION LINKED -->
 <section id="shop" class='shop'>
 <h2 class='title'>FEATURED DROPS</h2>
 <div class='grid'>
 <div class='item' style='--r:-5deg'>
 <img src='IMG_1498.jpeg'>
-<h3>fall/winter Drop</h3>
+<h3> fall/winter Drop</h3>
 <div class='buy'>SHOP</div>
 </div>
 
 <div class='item' style='--r:6deg'>
 <img src='IMG_1499.jpeg'>
-<h3>Converse x Golf Wang</h3>
+<h3>ConversexGolfWangCollab</h3>
 <div class='buy'>VIEW</div>
 </div>
 
 <div class='item' style='--r:-4deg'>
 <img src='IMG_1500.jpeg'>
-<h3>Igor Album</h3>
+<h3> igor's album</h3>
 <div class='buy'>BUY</div>
 </div>
+</div>
+</section>
+
+<section class='lookbook'>
+<h2 class='title'>COLLECTION</h2>
+
+<div class='card c1'><img src='IMG_1501.jpeg'></div>
+<div class='card c2'><img src='IMG_1502.jpeg'></div>
+<div class='card c3'><img src='IMG_1503.jpeg'></div>
+<div class='card c4'><img src='IMG_1504.jpeg'></div>
+<div class='card c8'><img src='IMG_1505.jpeg'></div>
+<div class='card c9'><img src='IMG_1506.jpeg'></div>
+
+<div class='note n1'>hand picked by Tyler</div>
+<div class='note n2'>odd future forever</div>
+
+</section>
+
+<div class='vinyl'></div>
+
+<section class='news'>
+<div class='mail'>
+<h2>JOIN THE CLUB</h2>
+<input placeholder='enter email'>
+<div class='btn'>SUBSCRIBE</div>
 </div>
 </section>
 
