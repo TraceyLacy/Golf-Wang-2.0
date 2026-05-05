@@ -232,10 +232,10 @@ nav a:hover {
   background: #1b4332;
 }
 
-/* lookbook scatter */
+/* lookbook scatter - only 4 unique images (no duplicates) */
 .lookbook {
   position: relative;
-  min-height: 1900px;
+  min-height: 900px;
   padding: 80px 5%;
 }
 
@@ -264,15 +264,11 @@ nav a:hover {
   object-fit: cover;
 }
 
+/* only 4 distinct lookbook images - no duplicates */
 .c1 { width: 260px; left: 3%; top: 180px; transform: rotate(-6deg); }
-.c2 { width: 300px; left: 26%; top: 100px; transform: rotate(5deg); }
-.c3 { width: 280px; left: 50%; top: 300px; transform: rotate(-8deg); }
+.c2 { width: 300px; left: 28%; top: 100px; transform: rotate(5deg); }
+.c3 { width: 280px; left: 52%; top: 280px; transform: rotate(-8deg); }
 .c4 { width: 310px; right: 4%; top: 140px; transform: rotate(7deg); }
-.c5 { width: 270px; right: 3%; top: 650px; transform: rotate(-4deg); }
-.c6 { width: 260px; left: 16%; top: 920px; transform: rotate(6deg); }
-.c7 { width: 320px; left: 46%; top: 1020px; transform: rotate(-5deg); }
-.c8 { width: 290px; right: 6%; top: 1250px; transform: rotate(9deg); }
-.c9 { width: 340px; left: 10%; top: 1480px; transform: rotate(-7deg); }
 
 .note-sticker {
   position: absolute;
@@ -287,9 +283,8 @@ nav a:hover {
   font-family: 'Space Grotesk', monospace;
 }
 
-.note1 { left: 10%; top: 600px; transform: rotate(-3deg); background: #6a2c8b; color: #c8e6d9; }
-.note2 { left: 55%; top: 1650px; transform: rotate(4deg); background: #2d6a4f; }
-.note3 { right: 10%; top: 820px; transform: rotate(8deg); background: #6a2c8b; }
+.note1 { left: 8%; top: 520px; transform: rotate(-3deg); background: #6a2c8b; color: #c8e6d9; }
+.note2 { right: 12%; top: 580px; transform: rotate(5deg); background: #2d6a4f; }
 
 /* vinyl spinner */
 .vinyl-spin {
@@ -394,7 +389,7 @@ footer {
   border-top: 4px solid #6a2c8b;
 }
 
-/* modal for about/club (modal style) */
+/* about modal (popup) */
 .page-modal {
   position: fixed;
   top: 0;
@@ -471,6 +466,7 @@ footer {
     flex-direction: column;
     align-items: center;
     gap: 2rem;
+    position: relative;
   }
   .look-card {
     position: relative !important;
@@ -489,9 +485,6 @@ footer {
     right: auto;
     top: auto;
     width: fit-content;
-  }
-  .title {
-    font-size: 2.5rem;
   }
   nav ul {
     gap: 18px;
@@ -516,7 +509,6 @@ footer {
   <ul>
     <li><a id="navAbout">ABOUT</a></li>
     <li><a id="navShopLink">SHOP</a></li>
-    <li><a id="navClub">CLUB</a></li>
   </ul>
 </nav>
 
@@ -539,20 +531,14 @@ footer {
 </section>
 
 <section id="lookbookSection" class="lookbook">
-  <h2 class="title" style="font-size: 3.5rem; margin-bottom: 40px;">🌸 LOOKBOOK ARCHIVE 🌸</h2>
+  <h2 class="title" style="font-size: 3.5rem; text-align: center; color: #d9b4ff; margin-bottom: 40px;">🌸 LOOKBOOK ARCHIVE 🌸</h2>
   <div class="look-card c1"><img src="IMG_1501.jpeg" alt="lookbook 1"></div>
   <div class="look-card c2"><img src="IMG_1502.jpeg" alt="lookbook 2"></div>
   <div class="look-card c3"><img src="IMG_1503.jpeg" alt="lookbook 3"></div>
   <div class="look-card c4"><img src="IMG_1504.jpeg" alt="lookbook 4"></div>
-  <div class="look-card c5"><img src="IMG_1501.jpeg" alt="lookbook 5"></div>
-  <div class="look-card c6"><img src="IMG_1502.jpeg" alt="lookbook 6"></div>
-  <div class="look-card c7"><img src="IMG_1503.jpeg" alt="lookbook 7"></div>
-  <div class="look-card c8"><img src="IMG_1504.jpeg" alt="lookbook 8"></div>
-  <div class="look-card c9"><img src="IMG_1501.jpeg" alt="lookbook 9"></div>
   
   <div class="note-sticker note1">✿ hand picked by Tyler ✿</div>
   <div class="note-sticker note2">🐺 ODD FUTURE FOREVER 🐺</div>
-  <div class="note-sticker note3">🍒 CHERRY BOMB ERA 🍒</div>
 </section>
 
 <div class="vinyl-spin"></div>
@@ -576,7 +562,7 @@ footer {
 </footer>
 
 <script>
-// ABOUT modal (keep as modal, not separate page)
+// ABOUT modal (popup - good)
 document.getElementById('navAbout').addEventListener('click', (e) => {
   e.preventDefault();
   const modal = document.createElement('div');
@@ -594,16 +580,15 @@ document.getElementById('navAbout').addEventListener('click', (e) => {
   modal.querySelector('.modal-close').addEventListener('click', () => modal.remove());
 });
 
-// SHOP LINK - OPENS A NEW PAGE (shop.html) with Tyler the Creator Merch + prices
+// SHOP LINK - OPENS A NEW PAGE with Tyler The Creator Merch + Prices (clean shop)
 document.getElementById('navShopLink').addEventListener('click', (e) => {
   e.preventDefault();
-  // Create a new HTML page content for shop.html with full Tyler merch + prices
   const shopHTML = `<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GOLF WANG · OFFICIAL SHOP</title>
+<title>GOLF WANG · TYLER THE CREATOR MERCH</title>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
@@ -612,7 +597,7 @@ body{font-family:'Space Grotesk',sans-serif;background:#0a1f1a;color:#e0d4ff;pad
 .header{text-align:center;margin-bottom:60px;}
 .header h1{font-size:4rem;color:#d9b4ff;margin-bottom:10px;text-shadow:4px 4px 0 #6a2c8b;}
 .header p{font-size:1.2rem;color:#95d5b2;}
-.back-btn{display:inline-block;margin-bottom:30px;background:#6a2c8b;padding:12px 28px;border-radius:60px;color:white;text-decoration:none;font-weight:700;transition:0.2s;}
+.back-btn{display:inline-block;margin-bottom:30px;background:#6a2c8b;padding:12px 28px;border-radius:60px;color:white;text-decoration:none;font-weight:700;transition:0.2s;border:none;cursor:pointer;}
 .back-btn:hover{background:#9b59b6;transform:scale(0.97);}
 .merch-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:35px;}
 .product-card{background:#1e2a1b;border-radius:40px;padding:25px;border:1px solid #9b59b6;box-shadow:15px 15px 0 #6a2c8b;transition:0.25s;}
@@ -629,111 +614,89 @@ body{font-family:'Space Grotesk',sans-serif;background:#0a1f1a;color:#e0d4ff;pad
 </head>
 <body>
 <div class="shop-container">
-<a href="#" onclick="window.close()" class="back-btn">← BACK TO MAIN SITE</a>
+<button onclick="window.close()" class="back-btn">← BACK TO MAIN SITE</button>
 <div class="header">
 <h1>🛍️ TYLER, THE CREATOR MERCH</h1>
-<p>official Golf Wang archive — limited drops & iconic pieces</p>
+<p>official Golf Wang collection — limited drops & iconic pieces</p>
 </div>
 <div class="merch-grid">
 <div class="product-card">
 <img class="product-img" src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=400&h=400&fit=crop" alt="Flower Boy Hoodie">
 <div class="product-title">🌸 FLOWER BOY HOODIE</div>
-<div class="product-desc">Embroidered bee design, premium cotton, pastel yellow/green. Tyler's signature spring vibe.</div>
+<div class="product-desc">Embroidered bee design, premium cotton. Tyler's signature spring vibe.</div>
 <div class="price">$95.00 USD</div>
-<button class="buy-btn" onclick="alert('Added to cart: Flower Boy Hoodie $95')">ADD TO CART →</button>
+<button class="buy-btn" onclick="alert('Added to cart: Flower Boy Hoodie - $95')">ADD TO CART →</button>
 </div>
 <div class="product-card">
 <img class="product-img" src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=400&h=400&fit=crop" alt="Golf Le Fleur Cardigan">
 <div class="product-title">💖 LE FLEUR* CARDIGAN</div>
-<div class="product-desc">Pastel patchwork cardigan with golf buttons. Tyler worn on IGOR tour.</div>
+<div class="product-desc">Pastel patchwork cardigan. Tyler worn on IGOR tour.</div>
 <div class="price">$185.00 USD</div>
-<button class="buy-btn" onclick="alert('Added to cart: Le Fleur Cardigan $185')">ADD TO CART →</button>
+<button class="buy-btn" onclick="alert('Added to cart: Le Fleur Cardigan - $185')">ADD TO CART →</button>
 </div>
 <div class="product-card">
 <img class="product-img" src="https://images.unsplash.com/photo-1556906781-9a412961c28c?w=400&h=400&fit=crop" alt="Cherry Bomb Varsity">
 <div class="product-title">🍒 CHERRY BOMB VARSITY</div>
-<div class="product-desc">Satin varsity jacket with cherry embroidery. Limited edition 1/500.</div>
+<div class="product-desc">Satin varsity jacket with cherry embroidery. Limited 1/500.</div>
 <div class="price">$220.00 USD</div>
-<button class="buy-btn" onclick="alert('Added to cart: Cherry Bomb Varsity $220')">ADD TO CART →</button>
+<button class="buy-btn" onclick="alert('Added to cart: Cherry Bomb Varsity - $220')">ADD TO CART →</button>
 </div>
 <div class="product-card">
 <img class="product-img" src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=400&h=400&fit=crop" alt="Golf Cargo Pants">
 <div class="product-title">🐝 GOLF CARGO PANTS</div>
-<div class="product-desc">Utility fit, flower patches, bee embroidery. Relaxed skate-ready pant.</div>
+<div class="product-desc">Utility fit, flower patches, bee embroidery. Relaxed skate pant.</div>
 <div class="price">$120.00 USD</div>
-<button class="buy-btn" onclick="alert('Added to cart: Golf Cargo Pants $120')">ADD TO CART →</button>
+<button class="buy-btn" onclick="alert('Added to cart: Golf Cargo Pants - $120')">ADD TO CART →</button>
 </div>
 <div class="product-card">
 <img class="product-img" src="https://images.unsplash.com/photo-1562157873-818bc0726f68?w=400&h=400&fit=crop" alt="IGOR Tee">
 <div class="product-title">💗 IGOR TOUR TEE</div>
-<div class="product-desc">Pink golf silhouette tee, soft premium cotton. Official 2019 tour reissue.</div>
+<div class="product-desc">Pink golf silhouette tee, premium cotton. 2019 tour reissue.</div>
 <div class="price">$45.00 USD</div>
-<button class="buy-btn" onclick="alert('Added to cart: IGOR Tour Tee $45')">ADD TO CART →</button>
+<button class="buy-btn" onclick="alert('Added to cart: IGOR Tour Tee - $45')">ADD TO CART →</button>
 </div>
 <div class="product-card">
 <img class="product-img" src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=400&h=400&fit=crop" alt="Flower Beanie">
 <div class="product-title">🌸 FLOWER BEANIE</div>
-<div class="product-desc">Warm knit beanie with detachable bee charm. One size fits all.</div>
+<div class="product-desc">Warm knit beanie with detachable bee charm.</div>
 <div class="price">$32.00 USD</div>
-<button class="buy-btn" onclick="alert('Added to cart: Flower Beanie $32')">ADD TO CART →</button>
+<button class="buy-btn" onclick="alert('Added to cart: Flower Beanie - $32')">ADD TO CART →</button>
 </div>
 <div class="product-card">
 <img class="product-img" src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?w=400&h=400&fit=crop" alt="Converse Golf Wang">
 <div class="product-title">⚡ CONVERSE x GOLF</div>
-<div class="product-desc">One Star flower embroidery, special insole. Tyler's favorite silhouette.</div>
+<div class="product-desc">One Star flower embroidery. Tyler's favorite silhouette.</div>
 <div class="price">$110.00 USD</div>
-<button class="buy-btn" onclick="alert('Added to cart: Converse x Golf $110')">ADD TO CART →</button>
+<button class="buy-btn" onclick="alert('Added to cart: Converse x Golf - $110')">ADD TO CART →</button>
 </div>
 <div class="product-card">
 <img class="product-img" src="https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=400&h=400&fit=crop" alt="Estate Sale Jacket">
 <div class="product-title">🏆 ESTATE SALE JACKET</div>
-<div class="product-desc">CMIYGL tour jacket, heavy nylon, estate sale graphic. Includes passport booklet.</div>
+<div class="product-desc">CMIYGL tour jacket, heavy nylon. Includes passport booklet.</div>
 <div class="price">$195.00 USD</div>
-<button class="buy-btn" onclick="alert('Added to cart: Estate Sale Jacket $195')">ADD TO CART →</button>
+<button class="buy-btn" onclick="alert('Added to cart: Estate Sale Jacket - $195')">ADD TO CART →</button>
 </div>
 <div class="product-card">
-<img class="product-img" src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=400&h=400&fit=crop" alt="Wolf 10YR Hoodie">
+<img class="product-img" src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=400&h=400&fit=crop" alt="Wolf Hoodie">
 <div class="product-title">🐺 WOLF 10YR HOODIE</div>
 <div class="product-desc">Anniversary edition, wolf graphic on back. Heavy fleece.</div>
 <div class="price">$105.00 USD</div>
-<button class="buy-btn" onclick="alert('Added to cart: Wolf 10YR Hoodie $105')">ADD TO CART →</button>
+<button class="buy-btn" onclick="alert('Added to cart: Wolf 10YR Hoodie - $105')">ADD TO CART →</button>
 </div>
 </div>
 <div class="footer">
 <p>🌼 GOLF WANG ARCHIVE — ALL PRICES USD // LIMITED STOCK 🌼</p>
 </div>
 </div>
-<script>
-// simple close fallback
-console.log("GOLF SHOP PAGE — TYLER MERCH");
-</script>
 </body>
 </html>`;
-  // create a blob and open new tab
   const blob = new Blob([shopHTML], {type: 'text/html'});
   const url = URL.createObjectURL(blob);
   window.open(url, '_blank');
   setTimeout(() => URL.revokeObjectURL(url), 1000);
 });
 
-// CLUB modal
-document.getElementById('navClub').addEventListener('click', (e) => {
-  e.preventDefault();
-  const modal = document.createElement('div');
-  modal.className = 'page-modal';
-  modal.innerHTML = `
-    <div class="modal-content">
-      <h2>💎 GOLF CLUB MEMBERSHIP</h2>
-      <p>Exclusive Tyler drops, Camp Flog Gnaw pre-sale, unreleased beats, and members-only merch. Are you in?</p>
-      <p style="background:#6a2c8b; padding:12px; border-radius:40px;">✨ Join the newsletter for instant access ✨</p>
-      <button class="modal-close">CLOSE →</button>
-    </div>
-  `;
-  document.body.appendChild(modal);
-  modal.querySelector('.modal-close').addEventListener('click', () => modal.remove());
-});
-
-// Hero button modal
+// Hero button simple modal
 document.getElementById('heroBtn').addEventListener('click', () => {
   const modal = document.createElement('div');
   modal.className = 'page-modal';
@@ -741,7 +704,6 @@ document.getElementById('heroBtn').addEventListener('click', () => {
     <div class="modal-content">
       <h2>🌸 WELCOME TO GOLF WORLD</h2>
       <p>You've unlocked the Cherry Bomb dimension. Expect weird sounds, bright colors, and skate magic. 🛹✨</p>
-      <p>🎧 + hidden IGOR soundtrack vibes</p>
       <button class="modal-close">ENTER</button>
     </div>
   `;
@@ -753,13 +715,62 @@ document.getElementById('homeLogo').addEventListener('click', () => {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
-// lookbook card clicks: fun info
+// lookbook card clicks: simple info (no duplicates, just the 4 cards)
 const lookCards = document.querySelectorAll('.look-card');
+const pieces = [
+  '🌸 GOLF LE FLEUR* FLORAL CARDIGAN — Tyler worn at CFG', 
+  '🐝 BEE EMBROIDERED DENIM JACKET — limited 2023', 
+  '🍒 CHERRY BOMB TOUR HOODIE — OG 2015 reissue',
+  '⚡ ODD FUTURE DONUT SWEATER — nostalgic grail'
+];
 lookCards.forEach((card, idx) => {
   card.addEventListener('click', () => {
-    const pieces = [
-      '🌸 GOLF LE FLEUR* FLORAL CARDIGAN — Tyler worn at CFG', 
-      '🐝 BEE EMBROIDERED DENIM JACKET — limited 2023', 
-      '🍒 CHERRY BOMB TOUR HOODIE — OG 2015 reissue',
-      '⚡ ODD FUTURE DONUT SWEATER — nostalgic grail', 
-      '🌻 SUNFLOWER CORD
+    const modal = document.createElement('div');
+    modal.className = 'page-modal';
+    modal.innerHTML = `
+      <div class="modal-content">
+        <h2>📸 LOOKBOOK SPOTLIGHT</h2>
+        <p>You uncovered: <strong>${pieces[idx % pieces.length]}</strong></p>
+        <p>This piece embodies Tyler's bold, playful vision. Archival treasure from the Golf Wang universe.</p>
+        <button class="modal-close">CLOSE</button>
+      </div>
+    `;
+    document.body.appendChild(modal);
+    modal.querySelector('.modal-close').addEventListener('click', () => modal.remove());
+  });
+});
+
+// SUBSCRIBE FORM - exactly as you asked: "put a real email, weirdo"
+const subForm = document.getElementById('subscribeForm');
+const subFeedback = document.getElementById('subFeedback');
+
+subForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const emailInput = document.getElementById('subEmail');
+  const email = emailInput.value.trim();
+  
+  if(email && email.includes('@') && email.includes('.')) {
+    subFeedback.innerHTML = `✅ YO, ${email} — you're officially in the GOLF CLUB! Expect weird fun emails, early access & Tyler's secret playlists. 🐝✿🌸`;
+    subFeedback.style.background = "#6a2c8b";
+    subFeedback.style.color = "#e0d4ff";
+    subFeedback.style.padding = "12px 24px";
+    subFeedback.style.borderRadius = "60px";
+    emailInput.value = '';
+    setTimeout(() => {
+      if(subFeedback) subFeedback.innerHTML = '';
+    }, 5000);
+  } else {
+    // EXACT MESSAGE YOU REQUESTED
+    subFeedback.innerHTML = `⚠️ put a real email, weirdo ⚠️`;
+    subFeedback.style.background = "#6a2c8b";
+    subFeedback.style.color = "#ffcccc";
+    subFeedback.style.padding = "12px 24px";
+    subFeedback.style.borderRadius = "60px";
+    setTimeout(() => {
+      if(subFeedback) subFeedback.innerHTML = '';
+    }, 3000);
+  }
+});
+</script>
+</body>
+</html>
