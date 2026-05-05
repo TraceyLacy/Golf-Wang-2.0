@@ -308,6 +308,13 @@ transform:none!important;
 }
 </style>
 </head>
+  <script>
+function subscribe(e) {
+  e.preventDefault();
+  const email = e.target.querySelector("input").value;
+  alert("Subscribed with: " + email);
+}
+</script>
 <body>
 
 <div class='blob b1'></div>
@@ -338,7 +345,7 @@ transform:none!important;
 <p>Bright colors. weird luxury. flowers. skate energy. Tyler world-building.</p>
 <div class='btn'>ENTER THE CLUB</div>
 </div>
-</section
+</section>
 
 <section id="shop" class='shop'>
 <h2 class='title'>FEATURED DROPS</h2>
@@ -381,8 +388,10 @@ transform:none!important;
 <section class='news'>
 <div class='mail'>
 <h2>JOIN THE CLUB</h2>
-<input placeholder='enter email'>
-<div class='btn'>SUBSCRIBE</div>
+<form onsubmit="subscribe(event)">
+  <input type="email" placeholder="enter email" required>
+  <button type="submit" class="btn">SUBSCRIBE</button>
+</form>
 </div>
 </section>
 
