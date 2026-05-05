@@ -4,624 +4,775 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <title>GOLF WANG · CHERRY BOMB UNIVERSE</title>
-<!-- Fonts & Styles -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,700;14..32,900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@600;700&display=swap" rel="stylesheet">
 <style>
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-  html {
-    scroll-behavior: smooth;
-  }
+html {
+  scroll-behavior: smooth;
+}
 
-  body {
-    font-family: 'Space Grotesk', 'Inter', sans-serif;
-    background: linear-gradient(145deg, #9e1e1e 0%, #6a0f0f 100%);
-    overflow-x: hidden;
-    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="27" viewBox="0 0 24 27"><polygon points="2,2 22,13 12,16 2,25" fill="%23FFE45E" stroke="%23000" stroke-width="1.5"/><circle cx="14" cy="14" r="3" fill="%23FF8FAA"/></svg>') 12 5, auto;
-  }
+body {
+  font-family: 'Space Grotesk', sans-serif;
+  background: #8B0000;
+  background-image: radial-gradient(circle at 10% 20%, rgba(255, 243, 111, 0.15) 0%, rgba(0,0,0,0.2) 90%);
+  overflow-x: hidden;
+  min-height: 100vh;
+}
 
-  /* animated blobs — tyler pastel chaos */
-  .blob {
-    position: fixed;
-    border-radius: 60%;
-    filter: blur(100px);
-    opacity: 0.5;
-    z-index: -2;
-    animation: floatDrift 13s infinite alternate ease-in-out;
-  }
+/* animated blobs */
+.blob {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0.5;
+  z-index: -2;
+  animation: floatBlob 12s ease-in-out infinite;
+}
 
-  @keyframes floatDrift {
-    0% { transform: translateY(0px) translateX(0px) scale(1); }
-    100% { transform: translateY(-50px) translateX(40px) scale(1.1); }
-  }
+@keyframes floatBlob {
+  0% { transform: translateY(0px) translateX(0px) scale(1); }
+  50% { transform: translateY(-40px) translateX(30px) scale(1.1); }
+  100% { transform: translateY(0px) translateX(0px) scale(1); }
+}
 
-  .b1 { width: 380px; height: 380px; background: #FFF75E; top: -80px; left: -100px; }
-  .b2 { width: 320px; height: 320px; background: #FFB347; bottom: 40px; right: -50px; animation-duration: 18s; }
-  .b3 { width: 440px; height: 440px; background: #B9FBC0; top: 45%; left: 20%; opacity: 0.4; }
+.b1 { width: 350px; height: 350px; background: #fff36f; top: -80px; left: -70px; }
+.b2 { width: 280px; height: 280px; background: #ffb8df; bottom: 100px; right: -50px; animation-delay: 2s; }
+.b3 { width: 380px; height: 380px; background: #bfff8f; bottom: -100px; left: 20%; animation-delay: 4s; }
 
-  /* floating stickers - Golf Wang energy */
-  .sticker {
-    position: fixed;
-    font-size: 5rem;
-    z-index: 10;
-    pointer-events: none;
-    filter: drop-shadow(4px 6px 0 #00000055);
-    animation: wiggle 5s infinite ease;
-  }
+/* floating stickers */
+.sticker {
+  position: fixed;
+  font-size: 65px;
+  z-index: 10;
+  pointer-events: none;
+  filter: drop-shadow(3px 5px 0 rgba(0,0,0,0.2));
+  animation: bounceSticker 4s ease-in-out infinite;
+}
 
-  @keyframes wiggle {
-    0%,100% { transform: translateY(0px) rotate(0deg); }
-    50% { transform: translateY(-18px) rotate(12deg); }
-  }
-  .s1 { left: 3%; top: 28%; animation-duration: 4.2s; }
-  .s2 { right: 5%; top: 55%; animation-duration: 5.7s; animation-delay: 1s; }
-  .s3 { left: 6%; bottom: 12%; animation-duration: 6s; animation-delay: 0.5s; }
-  .s4 { right: 8%; top: 12%; font-size: 4rem; animation-duration: 3.9s; }
+@keyframes bounceSticker {
+  0%,100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(10deg); }
+}
 
-  /* ----- NAVIGATION (Tyler style) ----- */
-  nav {
-    position: fixed;
-    width: 100%;
-    padding: 1.2rem 4%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 999;
-    backdrop-filter: blur(12px);
-    background: rgba(0,0,0,0.25);
-    border-bottom: 2px solid #fff36f;
-    transition: 0.3s;
-  }
-  .logo {
-    background: #fff36f;
-    color: #000;
-    font-weight: 900;
-    padding: 0.7rem 1.8rem;
-    border-radius: 60px;
-    font-size: 1.6rem;
-    letter-spacing: -0.5px;
-    box-shadow: 5px 5px 0 #111;
-    transition: 0.2s;
-  }
-  .logo:hover { transform: scale(0.98); background: #ffdd44; }
-  nav ul {
-    display: flex;
-    gap: 2rem;
-    list-style: none;
-  }
-  nav a {
-    text-decoration: none;
-    color: white;
-    font-weight: 700;
-    font-size: 1.1rem;
-    padding: 8px 0;
-    border-bottom: 3px solid transparent;
-    transition: 0.2s;
-  }
-  nav a:hover {
-    border-bottom-color: #fff36f;
-    color: #fff36f;
-  }
+.s1 { left: 2%; top: 20%; animation-duration: 4.5s; }
+.s2 { right: 3%; top: 45%; animation-duration: 5s; animation-delay: 1s; }
+.s3 { left: 5%; bottom: 15%; animation-duration: 3.8s; animation-delay: 0.5s; }
+.s4 { right: 6%; top: 12%; font-size: 55px; animation-duration: 5.5s; }
 
-  /* marquee — cherry bomb loop */
-  .banner {
-    margin-top: 85px;
-    background: #111;
-    color: #FFF36F;
-    overflow: hidden;
-    padding: 1rem 0;
-    border-top: 2px solid #ffb8df;
-    border-bottom: 2px solid #bfff8f;
-  }
-  .move {
-    display: inline-block;
-    white-space: nowrap;
-    animation: scrollMarquee 25s linear infinite;
-    font-weight: 800;
-    font-size: 1.5rem;
-    letter-spacing: 2px;
-  }
-  .move i { margin: 0 20px; color: #ff99cc; }
-  @keyframes scrollMarquee {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-  }
+/* navigation */
+nav {
+  position: fixed;
+  width: 100%;
+  padding: 18px 6%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(16px);
+  background: rgba(0,0,0,0.3);
+  border-bottom: 2px solid #fff36f;
+}
 
-  /* Hero section — punk-luxury */
-  .hero {
-    min-height: 95vh;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-    padding: 120px 6% 80px;
-    align-items: center;
-  }
-  .hero-logo {
-    background: #ffffffdd;
-    backdrop-filter: blur(6px);
-    padding: 25px;
-    border-radius: 65px;
-    transform: rotate(-2deg);
-    box-shadow: 25px 25px 0 #ffe45e;
-    transition: 0.4s;
-  }
-  .hero-logo img {
-    width: 100%;
-    border-radius: 45px;
-    border: 3px solid white;
-  }
-  .hero-copy {
-    background: #faf0b1;
-    padding: 3rem;
-    border-radius: 50px;
-    transform: rotate(1.5deg);
-    box-shadow: 20px 20px 0 #ff87b2;
+.logo {
+  background: #fff36f;
+  padding: 10px 28px;
+  border-radius: 60px;
+  font-weight: 800;
+  font-size: 1.4rem;
+  letter-spacing: -0.5px;
+  color: #000;
+  box-shadow: 6px 6px 0 #000;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.logo:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 8px 8px 0 #000;
+}
+
+nav ul {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+}
+
+nav a {
+  text-decoration: none;
+  color: white;
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 8px 0;
+  border-bottom: 3px solid transparent;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+nav a:hover {
+  border-bottom-color: #fff36f;
+  color: #fff36f;
+}
+
+/* marquee banner */
+.banner {
+  margin-top: 85px;
+  overflow: hidden;
+  background: #111;
+  padding: 14px 0;
+  border-top: 2px solid #ffb8df;
+  border-bottom: 2px solid #bfff8f;
+}
+
+.move {
+  display: inline-block;
+  white-space: nowrap;
+  animation: scrollText 22s linear infinite;
+  font-weight: 700;
+  font-size: 1.3rem;
+  letter-spacing: 2px;
+  color: #fff36f;
+}
+
+.move span {
+  margin: 0 25px;
+  color: #ff99cc;
+}
+
+@keyframes scrollText {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* hero section */
+.hero {
+  min-height: 90vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: center;
+  padding: 100px 6% 80px;
+}
+
+.hero-logo {
+  background: rgba(255,255,245,0.95);
+  padding: 25px;
+  border-radius: 45px;
+  transform: rotate(-2deg);
+  box-shadow: 20px 20px 0 #ffe45e;
+  transition: 0.3s;
+}
+
+.hero-logo img {
+  width: 100%;
+  border-radius: 30px;
+  display: block;
+}
+
+.hero-copy {
+  background: #faf0b1;
+  padding: 50px;
+  border-radius: 50px;
+  transform: rotate(1deg);
+  box-shadow: 20px 20px 0 #ff87b2;
+}
+
+.hero-copy h1 {
+  font-size: 5.5rem;
+  font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: -2px;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.hero-copy h1 span {
+  background: #fff36f;
+  display: inline-block;
+  padding: 0 12px;
+  margin-left: 5px;
+}
+
+.hero-copy p {
+  margin-top: 25px;
+  font-size: 1.2rem;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.btn-primary {
+  display: inline-block;
+  margin-top: 35px;
+  background: #000;
+  color: #fff36f;
+  padding: 14px 38px;
+  border-radius: 60px;
+  font-weight: 800;
+  font-size: 1rem;
+  box-shadow: 8px 8px 0 #fff36f;
+  transition: 0.2s;
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+}
+
+.btn-primary:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 11px 11px 0 #ffb8df;
+  background: #1a1a1a;
+}
+
+/* shop section */
+.shop {
+  padding: 100px 6%;
+  background: rgba(0,0,0,0.2);
+}
+
+.title {
+  font-size: 4rem;
+  font-weight: 800;
+  text-align: center;
+  color: #fff7ef;
+  text-shadow: 4px 4px 0 #00000060;
+  margin-bottom: 60px;
+  letter-spacing: -1px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
+.item {
+  background: #fff;
+  padding: 25px;
+  border-radius: 40px;
+  transform: rotate(var(--r, 0deg));
+  box-shadow: 18px 18px 0 #ffc8ea;
+  transition: 0.25s ease;
+  cursor: pointer;
+}
+
+.item:hover {
+  transform: translateY(-12px) rotate(0deg);
+  box-shadow: 22px 22px 0 #fff36f;
+}
+
+.item img {
+  width: 100%;
+  border-radius: 28px;
+  margin-bottom: 15px;
+  border: 2px solid #111;
+}
+
+.item h3 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin: 10px 0;
+}
+
+.item-btn {
+  display: inline-block;
+  margin-top: 12px;
+  background: #bfff8f;
+  padding: 10px 28px;
+  border-radius: 40px;
+  font-weight: 800;
+  color: #000;
+  text-decoration: none;
+  transition: 0.2s;
+  cursor: pointer;
+  border: none;
+  font-family: inherit;
+}
+
+.item-btn:hover {
+  background: #ffb347;
+  transform: scale(0.96);
+}
+
+/* lookbook scatter */
+.lookbook {
+  position: relative;
+  min-height: 1900px;
+  padding: 80px 5%;
+}
+
+.look-card {
+  position: absolute;
+  background: #fffef5;
+  padding: 14px;
+  border-radius: 38px;
+  box-shadow: 16px 18px 0 rgba(0,0,0,0.2);
+  transition: 0.3s cubic-bezier(0.2,0.9,0.4,1.1);
+  cursor: pointer;
+}
+
+.look-card:hover {
+  transform: scale(1.08) rotate(0deg) !important;
+  z-index: 100;
+  box-shadow: 0 25px 40px rgba(0,0,0,0.3);
+}
+
+.look-card img {
+  width: 100%;
+  border-radius: 28px;
+  border: 2px solid gold;
+}
+
+.c1 { width: 280px; left: 4%; top: 200px; transform: rotate(-6deg); }
+.c2 { width: 320px; left: 28%; top: 110px; transform: rotate(5deg); }
+.c3 { width: 300px; left: 52%; top: 320px; transform: rotate(-8deg); }
+.c4 { width: 330px; right: 5%; top: 150px; transform: rotate(7deg); }
+.c5 { width: 290px; right: 3%; top: 680px; transform: rotate(-4deg); }
+.c6 { width: 270px; left: 18%; top: 980px; transform: rotate(6deg); }
+.c7 { width: 350px; left: 48%; top: 1080px; transform: rotate(-5deg); }
+.c8 { width: 310px; right: 7%; top: 1320px; transform: rotate(9deg); }
+.c9 { width: 370px; left: 12%; top: 1500px; transform: rotate(-7deg); }
+
+.note-sticker {
+  position: absolute;
+  background: #fff36f;
+  padding: 16px 28px;
+  font-weight: 800;
+  font-size: 1.1rem;
+  border-radius: 100px;
+  box-shadow: 10px 10px 0 #000;
+  color: #000;
+  z-index: 20;
+  font-family: 'Space Grotesk', monospace;
+}
+
+.note1 { left: 12%; top: 620px; transform: rotate(-3deg); background: #ffd966; }
+.note2 { left: 58%; top: 1680px; transform: rotate(4deg); background: #bfff8f; }
+.note3 { right: 12%; top: 850px; transform: rotate(8deg); background: #ffb8df; }
+
+/* vinyl spinner */
+.vinyl-spin {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #2a2a2a, #000);
+  margin: 60px auto;
+  box-shadow: 0 0 0 10px #fff36f, 0 0 0 16px #111;
+  animation: spinRecord 7s linear infinite;
+}
+
+@keyframes spinRecord {
+  100% { transform: rotate(360deg); }
+}
+
+/* newsletter */
+.newsletter {
+  padding: 90px 6% 100px;
+}
+
+.mail-card {
+  background: #ffeaac;
+  border-radius: 65px;
+  padding: 55px 30px;
+  text-align: center;
+  box-shadow: 25px 25px 0 #ff68a0;
+}
+
+.mail-card h2 {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 15px;
+}
+
+.mail-card p {
+  font-size: 1.2rem;
+  margin-bottom: 25px;
+  font-weight: 500;
+}
+
+.form-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.form-group input {
+  padding: 16px 28px;
+  width: 340px;
+  border-radius: 60px;
+  border: 2px solid #000;
+  font-size: 1rem;
+  font-weight: 500;
+  outline: none;
+  background: white;
+}
+
+.form-group button {
+  background: #000;
+  color: #ffeaac;
+  padding: 16px 38px;
+  border-radius: 60px;
+  font-weight: 800;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  transition: 0.2s;
+  font-family: inherit;
+}
+
+.form-group button:hover {
+  background: #2a2a2a;
+  transform: scale(0.97);
+}
+
+.subscribe-feedback {
+  margin-top: 20px;
+  font-weight: 700;
+  padding: 10px;
+  border-radius: 60px;
+  display: inline-block;
+}
+
+footer {
+  background: #0a0a0a;
+  text-align: center;
+  padding: 40px;
+  color: #fff36f;
+  font-weight: 700;
+  letter-spacing: 2px;
+  border-top: 4px solid #ffcf4a;
+}
+
+/* modal overlay for "other pages" */
+.page-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.85);
+  backdrop-filter: blur(12px);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.modal-content {
+  background: #fffbed;
+  border-radius: 55px;
+  max-width: 550px;
+  width: 90%;
+  padding: 40px 35px;
+  text-align: center;
+  box-shadow: 30px 30px 0 #ffb8df;
+  animation: modalPop 0.3s ease;
+}
+
+@keyframes modalPop {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.modal-content h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  font-weight: 800;
+}
+
+.modal-content p {
+  font-size: 1.1rem;
+  margin: 20px 0;
+  line-height: 1.5;
+}
+
+.modal-close {
+  background: #000;
+  color: #fff36f;
+  padding: 12px 32px;
+  border-radius: 50px;
+  font-weight: 800;
+  border: none;
+  cursor: pointer;
+  margin-top: 20px;
+  font-size: 1rem;
+}
+
+.modal-close:hover {
+  background: #333;
+  transform: scale(0.96);
+}
+
+@media (max-width: 950px) {
+  .hero, .grid {
+    grid-template-columns: 1fr;
   }
   .hero-copy h1 {
-    font-size: 6rem;
-    font-family: 'Space Grotesk', sans-serif;
-    font-weight: 900;
-    line-height: 0.9;
-    text-transform: uppercase;
-    letter-spacing: -2px;
+    font-size: 3rem;
   }
-  .hero-copy h1 span { color: #b13e3e; background: #fff36f; display: inline-block; padding: 0 12px; }
-  .hero-copy p { margin-top: 1.8rem; font-size: 1.3rem; font-weight: 500; }
-  .btn-golf {
-    display: inline-block;
-    margin-top: 2rem;
-    background: black;
-    color: #fff36f;
-    padding: 14px 32px;
-    border-radius: 60px;
-    font-weight: 800;
-    box-shadow: 8px 8px 0 #fff36f;
-    transition: 0.25s;
-    text-decoration: none;
-    border: none;
-    cursor: pointer;
-    font-size: 1rem;
+  .lookbook {
+    min-height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
   }
-  .btn-golf:hover {
-    transform: translate(-4px, -4px);
-    box-shadow: 12px 12px 0 #ffc8ea;
-    background: #222;
-    color: white;
+  .look-card {
+    position: relative !important;
+    left: auto !important;
+    right: auto !important;
+    top: auto !important;
+    transform: none !important;
+    width: 90%;
+    max-width: 320px;
+    margin: 0 auto;
   }
-
-  /* Featured drops grid */
-  .shop {
-    padding: 100px 6%;
-    background: rgba(0,0,0,0.2);
+  .note-sticker {
+    position: relative;
+    margin: 20px auto;
+    left: auto;
+    right: auto;
+    top: auto;
+    width: fit-content;
   }
   .title {
-    font-size: 4.5rem;
-    font-weight: 800;
-    text-align: center;
-    color: #FFF7C0;
-    text-shadow: 5px 5px 0 #00000066;
-    margin-bottom: 3rem;
-    letter-spacing: -1px;
+    font-size: 2.8rem;
   }
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2.5rem;
+  nav ul {
+    gap: 18px;
   }
-  .item {
-    background: white;
-    border-radius: 45px;
-    padding: 1.5rem;
-    transform: rotate(var(--r, 0deg));
-    box-shadow: 18px 18px 0 #fccf7c;
-    transition: 0.25s ease;
-    cursor: pointer;
-  }
-  .item:hover {
-    transform: translateY(-15px) rotate(0deg);
-    box-shadow: 25px 25px 0 #ffb3ba;
-  }
-  .item img {
-    width: 100%;
-    border-radius: 28px;
-    margin-bottom: 1rem;
-    border: 2px solid black;
-  }
-  .item h3 {
-    font-size: 1.6rem;
-    font-weight: 700;
-    margin: 10px 0;
-  }
-  .shop-link {
-    display: inline-block;
-    margin-top: 0.8rem;
-    background: #bfff8f;
-    padding: 8px 26px;
-    border-radius: 40px;
-    font-weight: 800;
-    color: black;
-    text-decoration: none;
-    transition: 0.2s;
-  }
-  .shop-link:hover { background: #ffb347; transform: scale(0.96); }
-
-  /* LOOKBOOK - absolute scattered chaotic Tyler style */
-  .lookbook {
-    position: relative;
-    min-height: 1800px;
-    padding: 80px 5%;
-  }
-  .card {
-    position: absolute;
-    background: #fef9e6;
-    padding: 12px;
-    border-radius: 42px;
-    box-shadow: 18px 20px 0 rgba(0,0,0,0.2);
-    transition: 0.3s cubic-bezier(0.2, 1, 0.3, 1);
-    backdrop-filter: blur(2px);
-    cursor: pointer;
-  }
-  .card:hover {
-    transform: scale(1.08) rotate(0deg) !important;
-    z-index: 99;
-    box-shadow: 0 25px 40px black;
-  }
-  .card img {
-    width: 100%;
-    border-radius: 34px;
-    border: 2px solid gold;
-  }
-  .c1 { width: 280px; left: 4%; top: 180px; transform: rotate(-7deg); }
-  .c2 { width: 320px; left: 28%; top: 100px; transform: rotate(5deg); }
-  .c3 { width: 290px; left: 52%; top: 310px; transform: rotate(-9deg); }
-  .c4 { width: 340px; right: 6%; top: 140px; transform: rotate(8deg); }
-  .c5 { width: 300px; right: 3%; top: 650px; transform: rotate(-4deg); }
-  .c6 { width: 260px; left: 18%; top: 950px; transform: rotate(6deg); }
-  .c7 { width: 360px; left: 48%; top: 1020px; transform: rotate(-5deg); }
-  .c8 { width: 320px; right: 8%; top: 1280px; transform: rotate(10deg); }
-  .c9 { width: 380px; left: 15%; top: 1450px; transform: rotate(-8deg); }
-  
-  .golf-note {
-    position: absolute;
-    background: #fff36f;
-    padding: 18px 28px;
-    font-weight: 800;
-    font-size: 1.2rem;
-    border-radius: 100px;
-    box-shadow: 12px 12px 0 #000;
-    color: #111;
-    z-index: 20;
-  }
-  .n1 { left: 12%; top: 600px; transform: rotate(-4deg); }
-  .n2 { left: 62%; top: 1650px; transform: rotate(3deg); background: #ffadad; }
-  .n3 { right: 15%; top: 820px; transform: rotate(12deg); background: #bfff8f; }
-
-  .vinyl-player {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    background: radial-gradient(circle, #222, #050505);
-    margin: 60px auto;
-    box-shadow: 0 0 0 12px #ffd966, 0 0 0 18px black;
-    animation: spinRecord 8s linear infinite;
-  }
-  @keyframes spinRecord {
-    100% { transform: rotate(360deg); }
-  }
-
-  .news {
-    padding: 100px 6%;
-  }
-  .mail {
-    background: #ffeaac;
-    border-radius: 65px;
-    padding: 4rem 2rem;
-    text-align: center;
-    box-shadow: 28px 28px 0 #ff68a0;
-    transition: 0.2s;
-  }
-  .mail h2 {
-    font-size: 3.5rem;
-    font-weight: 800;
-    margin-bottom: 1rem;
-  }
-  .mail-input {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1rem;
-    margin-top: 1.8rem;
-  }
-  .mail-input input {
-    padding: 1rem 1.8rem;
-    width: 320px;
-    border-radius: 60px;
-    border: none;
-    font-size: 1rem;
-    font-weight: 500;
-    outline: none;
-    background: white;
-    border: 2px solid black;
-  }
-  .mail-input button {
-    background: black;
-    color: #ffeaac;
-    font-weight: bold;
-    padding: 0rem 2rem;
-    border-radius: 60px;
-    font-size: 1rem;
-    border: none;
-    cursor: pointer;
-  }
-  footer {
-    background: #0e0b0b;
-    text-align: center;
-    padding: 3rem;
-    font-size: 1rem;
-    color: #ffdd99;
-    border-top: 5px solid #ffcf4a;
-  }
-
-  @media (max-width: 950px) {
-    .hero, .grid { grid-template-columns: 1fr; }
-    .hero-copy h1 { font-size: 3.2rem; }
-    .lookbook { min-height: auto; display: flex; flex-direction: column; align-items: center; gap: 2rem; }
-    .card, .golf-note { position: relative !important; left: auto; right: auto; top: auto; margin: 1rem auto; transform: none !important; width: 90%; max-width: 320px; }
-    .title { font-size: 3rem; }
-  }
+}
 </style>
 </head>
 <body>
 
-<div class='blob b1'></div>
-<div class='blob b2'></div>
-<div class='blob b3'></div>
+<div class="blob b1"></div>
+<div class="blob b2"></div>
+<div class="blob b3"></div>
 
-<!-- extra tyler stickers -->
-<div class='sticker s1'>🌸</div>
-<div class='sticker s2'>⚡</div>
-<div class='sticker s3'>🐝</div>
-<div class='sticker s4'>🍒</div>
+<div class="sticker s1">🌸</div>
+<div class="sticker s2">⚡</div>
+<div class="sticker s3">🐝</div>
+<div class="sticker s4">🍒</div>
 
 <nav>
-  <div class='logo'>GOLF le FLEUR*</div>
+  <div class="logo" id="homeLogo">GOLF</div>
   <ul>
-    <li><a href="#" id="aboutLink">ABOUT</a></li>
-    <li><a href="#" id="shopNavLink">SHOP</a></li>
-    <li><a href="#" id="collectionLink">COLLECTION</a></li>
-    <li><a href="#" id="newsLink">CLUB</a></li>
+    <li><a id="navAbout">ABOUT</a></li>
+    <li><a id="navShop">SHOP</a></li>
+    <li><a id="navCollection">COLLECTION</a></li>
+    <li><a id="navClub">CLUB</a></li>
   </ul>
 </nav>
 
-<div class='banner'>
-  <div class='move'>
-    <i class="fas fa-crown"></i> CHERRY BOMB SEASON <i class="fas fa-sun"></i> GOLF WANG FLOWER BOY VIBES <i class="fas fa-golf-ball"></i>  
-    CALL ME IF YOU GET LOST <i class="fas fa-chess-queen"></i> ESTATE SALE <i class="fas fa-dove"></i>  CHERRY BOMB SEASON 
-    <i class="fas fa-crown"></i> GOLF WANG FLOWER BOY VIBES <i class="fas fa-golf-ball"></i>  
+<div class="banner">
+  <div class="move">
+    🍒 CHERRY BOMB ✿ GOLF LE FLEUR ✿ NEW DROP ✿ ODD FUTURE FOREVER ✿ CALL ME IF YOU GET LOST 🍒
+    <span>✦</span> CHERRY BOMB ✿ GOLF LE FLEUR ✿ NEW DROP ✿ ODD FUTURE FOREVER ✿ CALL ME IF YOU GET LOST 🍒
   </div>
 </div>
 
 <section class="hero">
   <div class="hero-logo">
-    <img src='IMG_1494.jpeg' alt="golf wang flagship">
+    <img src="IMG_1494.jpeg" alt="Golf Wang Hero">
   </div>
   <div class="hero-copy">
-    <h1>GOLF<span>WANG</span><br>CHERRY BOMB</h1>
-    <p>✦ Tyler, The Creator Universe ✦ <br> Bright silhouettes, golf le fleur* florals, weird luxury, igor’s essence, skate euphoria. step into the world.</p>
-    <a href="#" id="heroEnterBtn" class="btn-golf">ENTER THE GOLF CLUB →</a>
+    <h1>GOLF<span>WANG</span></h1>
+    <p>🎨 Bright colors. weird luxury. flowers. skate energy. Tyler world-building. Step into the Cherry Bomb universe.</p>
+    <button class="btn-primary" id="heroBtn">ENTER THE CLUB</button>
   </div>
 </section>
 
-<!-- FEATURED DROPS (clickable shop items go to external pages as creative mock) -->
-<section id="featuredShop" class="shop">
-  <h2 class='title'>⚡ GOLF DROPS ⚡</h2>
-  <div class='grid'>
-    <div class='item' style='--r:-4deg' data-product="f/w">
-      <img src='IMG_1498.jpeg' alt="fall winter drop">
-      <h3>F/W '24 MINT COLLECTION</h3>
-      <a href="#" class="shop-link shop-product" data-url="fw24.html">SHOP NOW →</a>
+<section id="shopSection" class="shop">
+  <h2 class="title">🔥 FEATURED DROPS 🔥</h2>
+  <div class="grid">
+    <div class="item" style="--r:-4deg">
+      <img src="IMG_1498.jpeg" alt="fall winter drop">
+      <h3>FALL/WINTER '24</h3>
+      <button class="item-btn" data-product="fallwinter">SHOP NOW →</button>
     </div>
-    <div class='item' style='--r:5deg' data-product="converse">
-      <img src='IMG_1499.jpeg' alt="converse x golf wang">
-      <h3>CONVERSE × GOLF le FLEUR*</h3>
-      <a href="#" class="shop-link shop-product" data-url="converse.html">VIEW COLLAB →</a>
+    <div class="item" style="--r:5deg">
+      <img src="IMG_1499.jpeg" alt="converse golf wang">
+      <h3>CONVERSE x GOLF le FLEUR*</h3>
+      <button class="item-btn" data-product="converse">VIEW COLLAB →</button>
     </div>
-    <div class='item' style='--r:-3deg' data-product="igor">
-      <img src='IMG_1500.jpeg' alt="igor album">
-      <h3>IGOR SPECIAL EDITION VINYL</h3>
-      <a href="#" class="shop-link shop-product" data-url="igorspecial.html">BUY VINYL →</a>
+    <div class="item" style="--r:-3deg">
+      <img src="IMG_1500.jpeg" alt="igor album">
+      <h3>IGOR SPECIAL EDITION</h3>
+      <button class="item-btn" data-product="igor">BUY VINYL →</button>
     </div>
   </div>
 </section>
 
-<!-- SCATTERED LOOKBOOK (tyler's chaotic energy) -->
-<section class="lookbook" id="collectionSection">
-  <h2 class='title'>🌸 FLOWER BOY LOOKBOOK 🌸</h2>
-  <div class='card c1' data-lookbook="golf le fleur cardigan"><img src='IMG_1501.jpeg' alt="golf cardigan"></div>
-  <div class='card c2' data-lookbook="cherry bomb tee"><img src='IMG_1502.jpeg' alt="cherry bomb tee"></div>
-  <div class='card c3' data-lookbook="floral button up"><img src='IMG_1503.jpeg' alt="floral shirt"></div>
-  <div class='card c4' data-lookbook="wolf hat"><img src='IMG_1504.jpeg' alt="golf wang hat"></div>
-  <div class='card c5'><img src='IMG_1502.jpeg' alt="golf pants"></div>
-  <div class='card c6'><img src='IMG_1503.jpeg' alt="le fleur patch"></div>
-  <div class='card c7'><img src='IMG_1501.jpeg' alt="camp flog gnaw"></div>
-  <div class='card c8'><img src='IMG_1498.jpeg' alt="odd future"></div>
-  <div class='card c9'><img src='IMG_1500.jpeg' alt="estate sale"></div>
+<section id="lookbookSection" class="lookbook">
+  <h2 class="title">🌸 LOOKBOOK ARCHIVE 🌸</h2>
+  <div class="look-card c1"><img src="IMG_1501.jpeg" alt="look1"></div>
+  <div class="look-card c2"><img src="IMG_1502.jpeg" alt="look2"></div>
+  <div class="look-card c3"><img src="IMG_1503.jpeg" alt="look3"></div>
+  <div class="look-card c4"><img src="IMG_1504.jpeg" alt="look4"></div>
+  <div class="look-card c5"><img src="IMG_1502.jpeg" alt="look5"></div>
+  <div class="look-card c6"><img src="IMG_1503.jpeg" alt="look6"></div>
+  <div class="look-card c7"><img src="IMG_1501.jpeg" alt="look7"></div>
+  <div class="look-card c8"><img src="IMG_1498.jpeg" alt="look8"></div>
+  <div class="look-card c9"><img src="IMG_1500.jpeg" alt="look9"></div>
   
-  <div class='golf-note n1'>✿ hand picked by Tyler, The Creator ✿</div>
-  <div class='golf-note n2'>🔊 ODD FUTURE FOREVER 🔊</div>
-  <div class='golf-note n3'>🍒 CHERRY BOMB 10YR ANNIVERSARY 🍒</div>
+  <div class="note-sticker note1">✿ hand picked by Tyler ✿</div>
+  <div class="note-sticker note2">🐺 ODD FUTURE FOREVER 🐺</div>
+  <div class="note-sticker note3">🍒 CHERRY BOMB ERA 🍒</div>
 </section>
 
-<div class='vinyl-player' title="igor's theme spinning"></div>
+<div class="vinyl-spin"></div>
 
-<section class="news" id="newsletterSection">
-  <div class="mail">
-    <h2>💌 JOIN THE GOLF CLUB 💌</h2>
-    <p style="font-weight:700; margin-bottom: 0.8rem;">get early access, secret drops & tyler edits</p>
-    <form id="subscribeForm" class="mail-input">
-      <input type="email" id="subEmail" placeholder="your best email" required>
-      <button type="submit" class="btn-golf" style="background:#000; color:#fff36f;">SUBSCRIBE</button>
+<section id="newsletterSection" class="newsletter">
+  <div class="mail-card">
+    <h2>💌 JOIN THE GOLF CLUB</h2>
+    <p>get early access, secret drops & Tyler's personal edits</p>
+    <form id="subscribeForm">
+      <div class="form-group">
+        <input type="email" id="subEmail" placeholder="your best email" required>
+        <button type="submit">SUBSCRIBE</button>
+      </div>
+      <div id="subFeedback" class="subscribe-feedback"></div>
     </form>
-    <div id="subscribeMessage" style="margin-top:1rem; font-weight:bold; color:#a52a1a;"></div>
   </div>
 </section>
 
 <footer>
-  🐝 GOLF LE FLEUR* WORLD — EST. 2011 — FLOWER BOY FOREVER 🐝
+  🐝 GOLF LE FLEUR WORLD — EST. 2011 — FLOWER BOY FOREVER 🐝
 </footer>
 
 <script>
-  // ========== PAGE ROUTING / "DIFFERENT PAGES" ==========
-  // simulate separate pages: popup / alert with context, but actually redirects to new creative "pages"
-  // we make ABOUT, SHOP, COLLECTION, CLUB interactive with dynamic content OR go to fun "pages"
+// Helper: show page modal (simulate different pages)
+function showPageModal(title, contentText, extraDetails = "") {
+  // remove existing modal if any
+  const existing = document.querySelector('.page-modal');
+  if(existing) existing.remove();
   
-  // Helper: open a fun "mock page" (or external but creative)
-  function goToPage(pageName) {
-    // create modal style experience showing tyler's themed page
-    const existingModal = document.querySelector('.tyler-modal');
-    if(existingModal) existingModal.remove();
-    
-    const modalDiv = document.createElement('div');
-    modalDiv.className = 'tyler-modal';
-    modalDiv.style.position = 'fixed';
-    modalDiv.style.top = '0'; modalDiv.style.left = '0';
-    modalDiv.style.width = '100%'; modalDiv.style.height = '100%';
-    modalDiv.style.backgroundColor = '#fcf0c7';
-    modalDiv.style.zIndex = '10000';
-    modalDiv.style.display = 'flex';
-    modalDiv.style.flexDirection = 'column';
-    modalDiv.style.alignItems = 'center';
-    modalDiv.style.justifyContent = 'center';
-    modalDiv.style.backdropFilter = 'blur(12px)';
-    modalDiv.style.fontFamily = "'Space Grotesk', monospace";
-    modalDiv.style.color = '#111';
-    modalDiv.style.padding = '2rem';
-    modalDiv.style.textAlign = 'center';
-    modalDiv.style.border = '6px solid #ffc107';
-    modalDiv.style.boxShadow = '0 0 0 100vmax rgba(0,0,0,0.7)';
-    
-    let content = '';
-    if(pageName === 'about') {
-      content = `<div style="background:white; padding:3rem; border-radius:60px; max-width:600px; transform:rotate(1deg);">
-        <h1 style="font-size:4rem;">🌀 ABOUT <span style="background:#FFF36F;">GOLF WANG</span></h1>
-        <p style="font-size:1.35rem; margin:2rem 0;">Created by Tyler, The Creator — Golf Wang is a rebellious playground of color, skate punk luxury, and unapologetic weirdness. From "Cherry Bomb" to "IGOR", each drop tells a story.</p>
-        <button id="closeModalBtn" style="background:#000; color:#fff; padding:12px 35px; border-radius:60px; font-weight:bold; border:none;">CLOSE & SKATE →</button>
-      </div>`;
-    } 
-    else if(pageName === 'shop') {
-      content = `<div style="background:#ffeac5; padding:3rem; border-radius:70px; max-width:600px;">
-        <h1 style="font-size:3rem;">🛹 OFFICIAL GOLF ARCHIVE</h1>
-        <p>Latest Drops: le FLEUR* cardigans, Cherry Bomb reissues, Wolf 10YR hoodies.</p>
-        <div style="margin:25px 0; display:flex; gap:15px; justify-content:center;"><span style="background:#ff7f7f; padding:8px 18px; border-radius:40px;">NEW ARRIVALS</span><span style="background:#b9ff91; padding:8px 18px; border-radius:40px;">SALE</span></div>
-        <button id="closeModalBtn" class="closeBtn" style="background:black; color:white; padding:12px 30px; border-radius:50px;">EXPLORE LATER</button>
-        </div>`;
-    }
-    else if(pageName === 'collection') {
-      content = `<div style="background:#fdffd4; padding:2rem; border-radius:70px;">
-        <h2>🌸 LOOKBOOK ARCHIVE 🌸</h2>
-        <p>Floral prints, giant hats, cherry motifs and pastel suits — all curated by Tyler himself. Full 360 lookbook in rotation.</p>
-        <div style="display:flex; gap:20px; justify-content:center; margin:2rem 0;"><i class="fas fa-tshirt" style="font-size:48px;"></i><i class="fas fa-hat-cowboy" style="font-size:48px;"></i></div>
-        <button id="closeModalBtn" style="background:#000; color:#FFF36F; padding:10px 30px; border-radius:60px;">BACK TO WORLD</button>
-      </div>`;
-    }
-    else if(pageName === 'club') {
-      content = `<div style="background: #ffd966; border-radius:80px; padding:2.5rem;">
-        <h1>🌟 GOLF CLUB MEMBERSHIP 🌟</h1>
-        <p>Exclusive Tyler drops, camp flog gnaw pre-sale, unreleased instrumentals. Are u in?</p>
-        <button id="closeModalBtn" style="background:#000; padding:10px 35px; border-radius:50px; color:#ffd966;">CLOSE</button>
-      </div>`;
-    }
-    else if(pageName === 'hero') {
-      content = `<div style="background: #111; color:#fff36f; border-radius:70px; padding:2rem;">
-        <h1>🚪 WELCOME TO GOLF WORLD</h1>
-        <p>you just unlocked exclusive wallpaper + hidden igor soundscape. 🎧</p>
-        <audio id="secretAudio" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" preload="auto"></audio>
-        <button id="closeModalBtn" style="background:#fff36f; color:black;">ENTER RABBIT HOLE</button>
-        <div><small style="opacity:0.7;">*playful demo experience*</small></div>
-      </div>`;
-      setTimeout(() => { let aud = document.getElementById('secretAudio'); if(aud) aud.play().catch(e=>console.log); }, 200);
-    }
-    
-    modalDiv.innerHTML = content;
-    document.body.appendChild(modalDiv);
-    const closeBtn = modalDiv.querySelector('#closeModalBtn');
-    if(closeBtn) closeBtn.addEventListener('click', () => modalDiv.remove());
-  }
-  
-  // navigation triggers
-  document.getElementById('aboutLink')?.addEventListener('click', (e) => { e.preventDefault(); goToPage('about'); });
-  document.getElementById('shopNavLink')?.addEventListener('click', (e) => { e.preventDefault(); goToPage('shop'); });
-  document.getElementById('collectionLink')?.addEventListener('click', (e) => { e.preventDefault(); goToPage('collection'); });
-  document.getElementById('newsLink')?.addEventListener('click', (e) => { e.preventDefault(); goToPage('club'); });
-  document.getElementById('heroEnterBtn')?.addEventListener('click', (e) => { e.preventDefault(); goToPage('hero'); });
-  
-  // product cards with fake "different pages" for shop items
-  const productLinks = document.querySelectorAll('.shop-product');
-  productLinks.forEach(link => {
-    link.addEventListener('click', (e) => {
-      e.preventDefault();
-      const productType = link.closest('.item')?.getAttribute('data-product') || "drop";
-      goToPage('shop');
-      // special different vibe
-      setTimeout(()=> {
-        const modal = document.querySelector('.tyler-modal');
-        if(modal) {
-          let extraMsg = document.createElement('div');
-          extraMsg.style.marginTop = '1rem';
-          extraMsg.style.fontWeight = 'bold';
-          extraMsg.innerText = `✨ you selected ${productType.toUpperCase()} edition ✨ exclusive golf wang experience.`;
-          modal.querySelector('div')?.appendChild(extraMsg);
-        }
-      }, 50);
-    });
-  });
-  
-  // Lookbook card clicks: also open info (like Page for each piece)
-  const lookCards = document.querySelectorAll('.card');
-  lookCards.forEach(card => {
-    card.addEventListener('click', () => {
-      const lookInfo = card.getAttribute('data-lookbook') || 'golf le fleur piece';
-      alert(`🌸 GOLF ARCHIVE: ${lookInfo} → available in the official web store (simulated). 🌸`);
-    });
-  });
-  
-  // SUBSCRIBE FUNCTION - clickable + fantastic feedback
-  const subForm = document.getElementById('subscribeForm');
-  const msgDiv = document.getElementById('subscribeMessage');
-  subForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const emailInput = document.getElementById('subEmail');
-    const email = emailInput.value.trim();
-    if(email && email.includes('@')) {
-      msgDiv.innerHTML = `✅ yo, ${email} — you're in the GOLF CLUB! Expect weird fun emails, early access & Tyler's secret playlists. 🐝✿`;
-      msgDiv.style.color = "#fff36f";
-      msgDiv.style.background = "#000000aa";
-      msgDiv.style.padding = "8px";
-      msgDiv.style.borderRadius = "80px";
-      emailInput.value = '';
-      // additional confetti effect mini
-      const confettiMsg = document.createElement('div');
-      confettiMsg.innerText = "🌸 GOLF WANG ACCEPTED 🌸";
-      confettiMsg.style.position = "fixed"; confettiMsg.style.bottom = "20%"; confettiMsg.style.left = "50%";
-      confettiMsg.style.transform = "translateX(-50%)"; confettiMsg.style.background = "#ffee88";
-      confettiMsg.style.padding = "15px 30px"; confettiMsg.style.borderRadius = "60px"; confettiMsg.style.fontWeight="bold";
-      confettiMsg.style.zIndex="9999"; confettiMsg.style.color="#b00000";
-      document.body.appendChild(confettiMsg);
-      setTimeout(() => confettiMsg.remove(), 2500);
+  const modal = document.createElement('div');
+  modal.className = 'page-modal';
+  modal.innerHTML = `
+    <div class="modal-content">
+      <h2>${title}</h2>
+      <p>${contentText}</p>
+      ${extraDetails ? `<p style="background:#fff36f; padding:10px; border-radius:40px;">✨ ${extraDetails} ✨</p>` : ''}
+      <button class="modal-close">CLOSE →</button>
+    </div>
+  `;
+  document.body.appendChild(modal);
+  modal.querySelector('.modal-close').addEventListener('click', () => modal.remove());
+}
+
+// Navigation events to different "pages"
+document.getElementById('navAbout').addEventListener('click', () => {
+  showPageModal('ABOUT GOLF WANG', 'Created by Tyler, The Creator — Golf Wang is a rebellious blend of skate punk, luxury florals, and unapologetic weirdness. From "Cherry Bomb" to "IGOR", every drop tells a story. 🎨🐝');
+});
+document.getElementById('navShop').addEventListener('click', () => {
+  showPageModal('OFFICIAL GOLF ARCHIVE', 'Latest Drops: le FLEUR* cardigans, Cherry Bomb reissues, Wolf 10YR hoodies, and exclusive Converse collabs. Limited stock — grab before it\'s gone!', 'NEW ARRIVALS + SALE');
+});
+document.getElementById('navCollection').addEventListener('click', () => {
+  showPageModal('FLOWER BOY COLLECTION', 'Explore the scattered lookbook — floral prints, giant hats, cherry motifs, and pastel suits. Each piece curated by Tyler himself. Full 360 archive vibes.', 'Spring/Summer 2024 preview');
+});
+document.getElementById('navClub').addEventListener('click', () => {
+  showPageModal('GOLF CLUB MEMBERSHIP', 'Exclusive Tyler drops, Camp Flog Gnaw pre-sale access, unreleased beats, and members-only merch. Are you in?', 'Join the newsletter for golden tickets');
+});
+document.getElementById('heroBtn').addEventListener('click', () => {
+  showPageModal('WELCOME TO GOLF WORLD', 'You\'ve unlocked the Cherry Bomb dimension. Expect weird sounds, bright colors, and skate magic. 🛹✨', '🎧 + hidden IGOR soundtrack');
+});
+document.getElementById('homeLogo').addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  showPageModal('GOLF WANG', 'The house that Tyler built — where creativity has no limits. Stay weird. Stay floral. 🐝🌸');
+});
+
+// Shop product buttons -> different simulated pages per product
+const productBtns = document.querySelectorAll('.item-btn');
+productBtns.forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const product = btn.getAttribute('data-product');
+    if(product === 'fallwinter') {
+      showPageModal('FALL/WINTER 24 DROP', 'Heavyweight floral cardigans, puffer jackets with bee motifs, and limited edition beanies. Pre-order now.', 'Exclusive Golf Wang tag');
+    } else if(product === 'converse') {
+      showPageModal('CONVERSE x GOLF le FLEUR*', 'The iconic One Star series returns with pastel suede, flower embroidery, and Tyler\'s signature grin. Limited pairs.', 'Size run: 5-13');
+    } else if(product === 'igor') {
+      showPageModal('IGOR SPECIAL EDITION VINYL', 'Pink & mint marble vinyl, poster + alternate cover art. The ultimate collector\'s piece for IGOR stans.', 'Limited to 5000 copies');
     } else {
-      msgDiv.innerHTML = `⚠️ type a real email, weirdo! Tyler demands proper address. ⚠️`;
-      msgDiv.style.color = "#ffbaba";
-      setTimeout(() => { if(msgDiv) msgDiv.innerHTML = ''; }, 3000);
+      showPageModal('GOLF DROP', 'Explore the latest collection — each piece is a statement. Skate or die with Golf aesthetic.', 'Free shipping on orders $150+');
     }
   });
+});
+
+// Lookbook card clicks -> show piece details (different informational "pages")
+const lookCards = document.querySelectorAll('.look-card');
+lookCards.forEach((card, idx) => {
+  card.addEventListener('click', () => {
+    const pieces = [
+      '🌸 FLORAL CARDIGAN — limited edition', 
+      '🐝 GOLF le FLEUR* BEE HOODIE', 
+      '🍒 CHERRY BOMB VARSITY JACKET',
+      '⚡ ODD FUTURE DONUT TEE', 
+      '🌻 SUNFLOWER WORK PANTS',
+      '🎨 TYLER THE CREATOR x CONVERSE SAMPLE',
+      '💖 IGOR PINK SUIT BLAZER',
+      '🏆 CALL ME IF YOU GET LOST CHAIN',
+      '🌀 ESTATE SALE RELIC TEE'
+    ];
+    const title = "✨ GOLF ARCHIVE SNEAK PEEK ✨";
+    const pieceName = pieces[idx % pieces.length];
+    showPageModal('LOOKBOOK SPOTLIGHT', `You uncovered: ${pieceName}. This piece embodies Tyler's vision — bold, rare, and iconic.`, 'Available in the Golf Wang app');
+  });
+});
+
+// SUBSCRIBE functionality - fully working
+const subForm = document.getElementById('subscribeForm');
+const subFeedback = document.getElementById('subFeedback');
+
+subForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const emailInput = document.getElementById('subEmail');
+  const email = emailInput.value.trim();
   
-  // bonus: anything else fantastic: create rotating marquee extra energy
-  console.log("GOLF WANG FANTASTIC MODE: Tyler, The Creator vibes active");
+  if(email && email.includes('@') && email.includes('.')) {
+    subFeedback.innerHTML = `✅ YO, ${email} — you're officially in the GOLF CLUB! Expect weird fun emails, early access & Tyler's secret playlists. 🐝✿🌸`;
+    subFeedback.style.background = "#000";
+    subFeedback.style.color = "#fff36f";
+    subFeedback.style.padding = "12px 20px";
+    subFeedback.style.borderRadius = "60px";
+    emailInput.value = '';
+    
+    // show confetti-like message
+    const toast = document.createElement('div');
+    toast.innerText = "🌸 GOLF WANG ACCEPTED 🌸";
+    toast.style.position = "fixed";
+    toast.style.bottom = "20%";
+    toast.style.left = "50%";
+    toast.style.transform = "translateX(-50%)";
+    toast.style.background = "#fff36f";
+    toast.style.color = "#8B0000";
+    toast.style.padding = "14px 28px";
+    toast.style.borderRadius = "60px";
+    toast.style.fontWeight = "800";
+    toast.style.zIndex = "10001";
+    toast.style.boxShadow = "0 4px 20px black";
+    document.body.appendChild(toast);
+    setTimeout(() => toast.remove(), 2800);
+  } else {
+    subFeedback.innerHTML = `⚠️ please enter a valid email, weirdo! Tyler demands a real address. ⚠️`;
+    subFeedback.style.background = "#ffb8df";
+    subFeedback.style.color = "#8B0000";
+    subFeedback.style.padding = "10px 20px";
+    subFeedback.style.borderRadius = "60px";
+    setTimeout(() => {
+      if(subFeedback) subFeedback.innerHTML = '';
+    }, 3000);
+  }
+});
+
+// Smooth scroll to sections from buttons if needed (just for fun)
+console.log("GOLF WANG — Tyler mode activated");
 </script>
 </body>
 </html>
