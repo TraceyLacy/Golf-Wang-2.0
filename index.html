@@ -18,51 +18,52 @@ html {
 
 body {
   font-family: 'Space Grotesk', sans-serif;
-  background: #8B0000;
-  background-image: radial-gradient(circle at 10% 20%, rgba(255, 243, 111, 0.15) 0%, rgba(0,0,0,0.2) 90%);
+  background: #0a1f1a;
+  background-image: radial-gradient(circle at 10% 20%, rgba(100, 50, 120, 0.25) 0%, rgba(0,0,0,0.3) 90%);
   overflow-x: hidden;
   min-height: 100vh;
 }
 
-/* animated blobs */
+/* animated blobs - purple + dark green theme */
 .blob {
   position: fixed;
   border-radius: 50%;
-  filter: blur(90px);
-  opacity: 0.5;
+  filter: blur(100px);
+  opacity: 0.45;
   z-index: -2;
-  animation: floatBlob 12s ease-in-out infinite;
+  animation: floatBlob 14s ease-in-out infinite;
 }
 
 @keyframes floatBlob {
   0% { transform: translateY(0px) translateX(0px) scale(1); }
-  50% { transform: translateY(-40px) translateX(30px) scale(1.1); }
+  50% { transform: translateY(-50px) translateX(40px) scale(1.15); }
   100% { transform: translateY(0px) translateX(0px) scale(1); }
 }
 
-.b1 { width: 350px; height: 350px; background: #fff36f; top: -80px; left: -70px; }
-.b2 { width: 280px; height: 280px; background: #ffb8df; bottom: 100px; right: -50px; animation-delay: 2s; }
-.b3 { width: 380px; height: 380px; background: #bfff8f; bottom: -100px; left: 20%; animation-delay: 4s; }
+.b1 { width: 400px; height: 400px; background: #6a2c8b; top: -100px; left: -80px; opacity: 0.5; }
+.b2 { width: 320px; height: 320px; background: #2d6a4f; bottom: 80px; right: -60px; animation-delay: 2s; opacity: 0.5; }
+.b3 { width: 380px; height: 380px; background: #9b59b6; bottom: -100px; left: 20%; animation-delay: 4s; opacity: 0.4; }
+.b4 { width: 280px; height: 280px; background: #1b4332; top: 40%; right: 15%; animation-delay: 6s; }
 
 /* floating stickers */
 .sticker {
   position: fixed;
-  font-size: 65px;
+  font-size: 60px;
   z-index: 10;
   pointer-events: none;
-  filter: drop-shadow(3px 5px 0 rgba(0,0,0,0.2));
-  animation: bounceSticker 4s ease-in-out infinite;
+  filter: drop-shadow(3px 5px 0 rgba(0,0,0,0.3));
+  animation: bounceSticker 4.5s ease-in-out infinite;
 }
 
 @keyframes bounceSticker {
   0%,100% { transform: translateY(0px) rotate(0deg); }
-  50% { transform: translateY(-20px) rotate(10deg); }
+  50% { transform: translateY(-22px) rotate(12deg); }
 }
 
-.s1 { left: 2%; top: 20%; animation-duration: 4.5s; }
-.s2 { right: 3%; top: 45%; animation-duration: 5s; animation-delay: 1s; }
-.s3 { left: 5%; bottom: 15%; animation-duration: 3.8s; animation-delay: 0.5s; }
-.s4 { right: 6%; top: 12%; font-size: 55px; animation-duration: 5.5s; }
+.s1 { left: 2%; top: 22%; animation-duration: 4.2s; color: #c77dff; }
+.s2 { right: 3%; top: 48%; animation-duration: 5s; animation-delay: 1s; color: #95d5b2; }
+.s3 { left: 5%; bottom: 18%; animation-duration: 3.8s; animation-delay: 0.5s; color: #d9b4ff; }
+.s4 { right: 7%; top: 12%; font-size: 55px; animation-duration: 5.5s; color: #74c69d; }
 
 /* navigation */
 nav {
@@ -74,26 +75,26 @@ nav {
   align-items: center;
   z-index: 1000;
   backdrop-filter: blur(16px);
-  background: rgba(0,0,0,0.3);
-  border-bottom: 2px solid #fff36f;
+  background: rgba(0,0,0,0.5);
+  border-bottom: 2px solid #9b59b6;
 }
 
 .logo {
-  background: #fff36f;
+  background: #2d6a4f;
   padding: 10px 28px;
   border-radius: 60px;
   font-weight: 800;
   font-size: 1.4rem;
   letter-spacing: -0.5px;
-  color: #000;
-  box-shadow: 6px 6px 0 #000;
+  color: #f0e6ff;
+  box-shadow: 6px 6px 0 #6a2c8b;
   transition: 0.2s;
   cursor: pointer;
 }
 
 .logo:hover {
   transform: translate(-2px, -2px);
-  box-shadow: 8px 8px 0 #000;
+  box-shadow: 8px 8px 0 #9b59b6;
 }
 
 nav ul {
@@ -104,7 +105,7 @@ nav ul {
 
 nav a {
   text-decoration: none;
-  color: white;
+  color: #e0d4ff;
   font-weight: 700;
   font-size: 1rem;
   padding: 8px 0;
@@ -114,18 +115,18 @@ nav a {
 }
 
 nav a:hover {
-  border-bottom-color: #fff36f;
-  color: #fff36f;
+  border-bottom-color: #c77dff;
+  color: #c77dff;
 }
 
 /* marquee banner */
 .banner {
   margin-top: 85px;
   overflow: hidden;
-  background: #111;
+  background: #0e2a1f;
   padding: 14px 0;
-  border-top: 2px solid #ffb8df;
-  border-bottom: 2px solid #bfff8f;
+  border-top: 2px solid #6a2c8b;
+  border-bottom: 2px solid #2d6a4f;
 }
 
 .move {
@@ -135,12 +136,12 @@ nav a:hover {
   font-weight: 700;
   font-size: 1.3rem;
   letter-spacing: 2px;
-  color: #fff36f;
+  color: #c77dff;
 }
 
 .move span {
   margin: 0 25px;
-  color: #ff99cc;
+  color: #95d5b2;
 }
 
 @keyframes scrollText {
@@ -159,12 +160,14 @@ nav a:hover {
 }
 
 .hero-logo {
-  background: rgba(255,255,245,0.95);
+  background: rgba(30, 20, 40, 0.85);
+  backdrop-filter: blur(8px);
   padding: 25px;
   border-radius: 45px;
   transform: rotate(-2deg);
-  box-shadow: 20px 20px 0 #ffe45e;
+  box-shadow: 20px 20px 0 #6a2c8b;
   transition: 0.3s;
+  border: 1px solid #9b59b6;
 }
 
 .hero-logo img {
@@ -174,11 +177,12 @@ nav a:hover {
 }
 
 .hero-copy {
-  background: #faf0b1;
+  background: #1e2a1b;
   padding: 50px;
   border-radius: 50px;
   transform: rotate(1deg);
-  box-shadow: 20px 20px 0 #ff87b2;
+  box-shadow: 20px 20px 0 #6a2c8b;
+  border: 1px solid #9b59b6;
 }
 
 .hero-copy h1 {
@@ -187,13 +191,15 @@ nav a:hover {
   line-height: 0.95;
   letter-spacing: -2px;
   font-family: 'Space Grotesk', sans-serif;
+  color: #e0d4ff;
 }
 
 .hero-copy h1 span {
-  background: #fff36f;
+  background: #6a2c8b;
   display: inline-block;
   padding: 0 12px;
   margin-left: 5px;
+  color: #95d5b2;
 }
 
 .hero-copy p {
@@ -201,18 +207,19 @@ nav a:hover {
   font-size: 1.2rem;
   font-weight: 500;
   line-height: 1.5;
+  color: #c8e6d9;
 }
 
 .btn-primary {
   display: inline-block;
   margin-top: 35px;
-  background: #000;
-  color: #fff36f;
+  background: #2d6a4f;
+  color: #f0e6ff;
   padding: 14px 38px;
   border-radius: 60px;
   font-weight: 800;
   font-size: 1rem;
-  box-shadow: 8px 8px 0 #fff36f;
+  box-shadow: 8px 8px 0 #6a2c8b;
   transition: 0.2s;
   cursor: pointer;
   border: none;
@@ -221,77 +228,88 @@ nav a:hover {
 
 .btn-primary:hover {
   transform: translate(-3px, -3px);
-  box-shadow: 11px 11px 0 #ffb8df;
-  background: #1a1a1a;
+  box-shadow: 11px 11px 0 #9b59b6;
+  background: #1b4332;
 }
 
 /* shop section */
 .shop {
   padding: 100px 6%;
-  background: rgba(0,0,0,0.2);
+  background: rgba(0,0,0,0.3);
 }
 
 .title {
   font-size: 4rem;
   font-weight: 800;
   text-align: center;
-  color: #fff7ef;
-  text-shadow: 4px 4px 0 #00000060;
+  color: #d9b4ff;
+  text-shadow: 4px 4px 0 #1b4332;
   margin-bottom: 60px;
   letter-spacing: -1px;
 }
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 35px;
 }
 
 .item {
-  background: #fff;
-  padding: 25px;
+  background: #1a2a1f;
+  padding: 20px;
   border-radius: 40px;
   transform: rotate(var(--r, 0deg));
-  box-shadow: 18px 18px 0 #ffc8ea;
+  box-shadow: 18px 18px 0 #6a2c8b;
   transition: 0.25s ease;
   cursor: pointer;
+  border: 1px solid #9b59b6;
 }
 
 .item:hover {
   transform: translateY(-12px) rotate(0deg);
-  box-shadow: 22px 22px 0 #fff36f;
+  box-shadow: 22px 22px 0 #9b59b6;
 }
 
 .item img {
   width: 100%;
   border-radius: 28px;
   margin-bottom: 15px;
-  border: 2px solid #111;
+  border: 2px solid #9b59b6;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
 }
 
 .item h3 {
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   font-weight: 700;
   margin: 10px 0;
+  color: #c8e6d9;
+}
+
+.item p {
+  font-size: 0.85rem;
+  color: #b89de0;
+  margin-bottom: 10px;
 }
 
 .item-btn {
   display: inline-block;
-  margin-top: 12px;
-  background: #bfff8f;
-  padding: 10px 28px;
+  margin-top: 8px;
+  background: #6a2c8b;
+  padding: 8px 20px;
   border-radius: 40px;
   font-weight: 800;
-  color: #000;
+  color: #f0e6ff;
   text-decoration: none;
   transition: 0.2s;
   cursor: pointer;
   border: none;
   font-family: inherit;
+  font-size: 0.85rem;
 }
 
 .item-btn:hover {
-  background: #ffb347;
+  background: #9b59b6;
   transform: scale(0.96);
 }
 
@@ -304,61 +322,64 @@ nav a:hover {
 
 .look-card {
   position: absolute;
-  background: #fffef5;
+  background: #1e2a1b;
   padding: 14px;
   border-radius: 38px;
-  box-shadow: 16px 18px 0 rgba(0,0,0,0.2);
+  box-shadow: 16px 18px 0 #6a2c8b;
   transition: 0.3s cubic-bezier(0.2,0.9,0.4,1.1);
   cursor: pointer;
+  border: 1px solid #9b59b6;
 }
 
 .look-card:hover {
   transform: scale(1.08) rotate(0deg) !important;
   z-index: 100;
-  box-shadow: 0 25px 40px rgba(0,0,0,0.3);
+  box-shadow: 0 25px 40px rgba(0,0,0,0.4);
 }
 
 .look-card img {
   width: 100%;
   border-radius: 28px;
-  border: 2px solid gold;
+  border: 2px solid #c77dff;
+  aspect-ratio: 3/4;
+  object-fit: cover;
 }
 
-.c1 { width: 280px; left: 4%; top: 200px; transform: rotate(-6deg); }
-.c2 { width: 320px; left: 28%; top: 110px; transform: rotate(5deg); }
-.c3 { width: 300px; left: 52%; top: 320px; transform: rotate(-8deg); }
-.c4 { width: 330px; right: 5%; top: 150px; transform: rotate(7deg); }
-.c5 { width: 290px; right: 3%; top: 680px; transform: rotate(-4deg); }
-.c6 { width: 270px; left: 18%; top: 980px; transform: rotate(6deg); }
-.c7 { width: 350px; left: 48%; top: 1080px; transform: rotate(-5deg); }
-.c8 { width: 310px; right: 7%; top: 1320px; transform: rotate(9deg); }
-.c9 { width: 370px; left: 12%; top: 1500px; transform: rotate(-7deg); }
+.c1 { width: 260px; left: 3%; top: 180px; transform: rotate(-6deg); }
+.c2 { width: 300px; left: 26%; top: 100px; transform: rotate(5deg); }
+.c3 { width: 280px; left: 50%; top: 300px; transform: rotate(-8deg); }
+.c4 { width: 310px; right: 4%; top: 140px; transform: rotate(7deg); }
+.c5 { width: 270px; right: 3%; top: 650px; transform: rotate(-4deg); }
+.c6 { width: 260px; left: 16%; top: 920px; transform: rotate(6deg); }
+.c7 { width: 320px; left: 46%; top: 1020px; transform: rotate(-5deg); }
+.c8 { width: 290px; right: 6%; top: 1250px; transform: rotate(9deg); }
+.c9 { width: 340px; left: 10%; top: 1480px; transform: rotate(-7deg); }
 
 .note-sticker {
   position: absolute;
-  background: #fff36f;
+  background: #2d6a4f;
   padding: 16px 28px;
   font-weight: 800;
   font-size: 1.1rem;
   border-radius: 100px;
-  box-shadow: 10px 10px 0 #000;
-  color: #000;
+  box-shadow: 10px 10px 0 #6a2c8b;
+  color: #e0d4ff;
   z-index: 20;
   font-family: 'Space Grotesk', monospace;
 }
 
-.note1 { left: 12%; top: 620px; transform: rotate(-3deg); background: #ffd966; }
-.note2 { left: 58%; top: 1680px; transform: rotate(4deg); background: #bfff8f; }
-.note3 { right: 12%; top: 850px; transform: rotate(8deg); background: #ffb8df; }
+.note1 { left: 10%; top: 600px; transform: rotate(-3deg); background: #6a2c8b; color: #c8e6d9; }
+.note2 { left: 55%; top: 1650px; transform: rotate(4deg); background: #2d6a4f; }
+.note3 { right: 10%; top: 820px; transform: rotate(8deg); background: #6a2c8b; }
 
 /* vinyl spinner */
 .vinyl-spin {
   width: 200px;
   height: 200px;
   border-radius: 50%;
-  background: radial-gradient(circle at 30% 30%, #2a2a2a, #000);
+  background: radial-gradient(circle at 30% 30%, #2d2d44, #1a1a2e);
   margin: 60px auto;
-  box-shadow: 0 0 0 10px #fff36f, 0 0 0 16px #111;
+  box-shadow: 0 0 0 10px #6a2c8b, 0 0 0 16px #2d6a4f;
   animation: spinRecord 7s linear infinite;
 }
 
@@ -372,23 +393,26 @@ nav a:hover {
 }
 
 .mail-card {
-  background: #ffeaac;
+  background: #1e2a1b;
   border-radius: 65px;
   padding: 55px 30px;
   text-align: center;
-  box-shadow: 25px 25px 0 #ff68a0;
+  box-shadow: 25px 25px 0 #6a2c8b;
+  border: 1px solid #9b59b6;
 }
 
 .mail-card h2 {
-  font-size: 3.5rem;
+  font-size: 3rem;
   font-weight: 800;
   margin-bottom: 15px;
+  color: #d9b4ff;
 }
 
 .mail-card p {
   font-size: 1.2rem;
   margin-bottom: 25px;
   font-weight: 500;
+  color: #c8e6d9;
 }
 
 .form-group {
@@ -403,16 +427,21 @@ nav a:hover {
   padding: 16px 28px;
   width: 340px;
   border-radius: 60px;
-  border: 2px solid #000;
+  border: 2px solid #9b59b6;
   font-size: 1rem;
   font-weight: 500;
   outline: none;
-  background: white;
+  background: #0a1a0e;
+  color: #e0d4ff;
+}
+
+.form-group input::placeholder {
+  color: #7a6a8a;
 }
 
 .form-group button {
-  background: #000;
-  color: #ffeaac;
+  background: #6a2c8b;
+  color: #f0e6ff;
   padding: 16px 38px;
   border-radius: 60px;
   font-weight: 800;
@@ -424,7 +453,7 @@ nav a:hover {
 }
 
 .form-group button:hover {
-  background: #2a2a2a;
+  background: #9b59b6;
   transform: scale(0.97);
 }
 
@@ -437,13 +466,13 @@ nav a:hover {
 }
 
 footer {
-  background: #0a0a0a;
+  background: #0a1a0e;
   text-align: center;
   padding: 40px;
-  color: #fff36f;
+  color: #c77dff;
   font-weight: 700;
   letter-spacing: 2px;
-  border-top: 4px solid #ffcf4a;
+  border-top: 4px solid #6a2c8b;
 }
 
 /* modal overlay for "other pages" */
@@ -453,7 +482,7 @@ footer {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.85);
+  background: rgba(0,0,0,0.9);
   backdrop-filter: blur(12px);
   z-index: 10000;
   display: flex;
@@ -463,14 +492,15 @@ footer {
 }
 
 .modal-content {
-  background: #fffbed;
+  background: #1e2a1b;
   border-radius: 55px;
   max-width: 550px;
   width: 90%;
   padding: 40px 35px;
   text-align: center;
-  box-shadow: 30px 30px 0 #ffb8df;
+  box-shadow: 30px 30px 0 #6a2c8b;
   animation: modalPop 0.3s ease;
+  border: 1px solid #9b59b6;
 }
 
 @keyframes modalPop {
@@ -482,17 +512,19 @@ footer {
   font-size: 2.5rem;
   margin-bottom: 20px;
   font-weight: 800;
+  color: #d9b4ff;
 }
 
 .modal-content p {
   font-size: 1.1rem;
   margin: 20px 0;
   line-height: 1.5;
+  color: #c8e6d9;
 }
 
 .modal-close {
-  background: #000;
-  color: #fff36f;
+  background: #6a2c8b;
+  color: #f0e6ff;
   padding: 12px 32px;
   border-radius: 50px;
   font-weight: 800;
@@ -503,8 +535,14 @@ footer {
 }
 
 .modal-close:hover {
-  background: #333;
+  background: #9b59b6;
   transform: scale(0.96);
+}
+
+@media (max-width: 1100px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (max-width: 950px) {
@@ -528,7 +566,7 @@ footer {
     top: auto !important;
     transform: none !important;
     width: 90%;
-    max-width: 320px;
+    max-width: 300px;
     margin: 0 auto;
   }
   .note-sticker {
@@ -540,10 +578,15 @@ footer {
     width: fit-content;
   }
   .title {
-    font-size: 2.8rem;
+    font-size: 2.5rem;
   }
   nav ul {
     gap: 18px;
+  }
+  .grid {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+    margin: 0 auto;
   }
 }
 </style>
@@ -553,6 +596,7 @@ footer {
 <div class="blob b1"></div>
 <div class="blob b2"></div>
 <div class="blob b3"></div>
+<div class="blob b4"></div>
 
 <div class="sticker s1">🌸</div>
 <div class="sticker s2">⚡</div>
@@ -590,35 +634,68 @@ footer {
 <section id="shopSection" class="shop">
   <h2 class="title">🔥 FEATURED DROPS 🔥</h2>
   <div class="grid">
-    <div class="item" style="--r:-4deg">
-      <img src="IMG_1498.jpeg" alt="fall winter drop">
-      <h3>FALL/WINTER '24</h3>
-      <button class="item-btn" data-product="fallwinter">SHOP NOW →</button>
+    <div class="item" style="--r:-3deg">
+      <img src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=400&h=400&fit=crop" alt="Golf Wang Floral Hoodie">
+      <h3>FLOWER BOY HOODIE</h3>
+      <p>🌼 Tyler's signature bee embroidery</p>
+      <button class="item-btn" data-product="flowerboy">SHOP NOW →</button>
+    </div>
+    <div class="item" style="--r:4deg">
+      <img src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=400&h=400&fit=crop" alt="Golf Le Fleur Cardigan">
+      <h3>LE FLEUR* CARDIGAN</h3>
+      <p>🌸 Pastel patchwork masterpiece</p>
+      <button class="item-btn" data-product="cardigan">VIEW →</button>
+    </div>
+    <div class="item" style="--r:-2deg">
+      <img src="https://images.unsplash.com/photo-1556906781-9a412961c28c?w=400&h=400&fit=crop" alt="Cherry Bomb Jacket">
+      <h3>CHERRY BOMB VARSITY</h3>
+      <p>🍒 Limited edition satin jacket</p>
+      <button class="item-btn" data-product="cherrybomb">BUY →</button>
     </div>
     <div class="item" style="--r:5deg">
-      <img src="IMG_1499.jpeg" alt="converse golf wang">
-      <h3>CONVERSE x GOLF le FLEUR*</h3>
-      <button class="item-btn" data-product="converse">VIEW COLLAB →</button>
+      <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=400&h=400&fit=crop" alt="Golf Wang Pants">
+      <h3>GOLF CARGO PANTS</h3>
+      <p>🐝 Utility fit + flower patches</p>
+      <button class="item-btn" data-product="cargo">SHOP →</button>
     </div>
-    <div class="item" style="--r:-3deg">
-      <img src="IMG_1500.jpeg" alt="igor album">
-      <h3>IGOR SPECIAL EDITION</h3>
-      <button class="item-btn" data-product="igor">BUY VINYL →</button>
+    <div class="item" style="--r:-4deg">
+      <img src="https://images.unsplash.com/photo-1562157873-818bc0726f68?w=400&h=400&fit=crop" alt="IGOR Tee">
+      <h3>IGOR TOUR TEE</h3>
+      <p>💖 Pink golf silhouette</p>
+      <button class="item-btn" data-product="igor">BUY →</button>
+    </div>
+    <div class="item" style="--r:3deg">
+      <img src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=400&h=400&fit=crop" alt="Golf Wang Beanie">
+      <h3>FLOWER BEANIE</h3>
+      <p>🌸 Knit with bee charm</p>
+      <button class="item-btn" data-product="beanie">VIEW →</button>
+    </div>
+    <div class="item" style="--r:-2deg">
+      <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?w=400&h=400&fit=crop" alt="Converse Golf Wang">
+      <h3>CONVERSE x GOLF</h3>
+      <p>⚡ One Star flower edition</p>
+      <button class="item-btn" data-product="converse">SHOP →</button>
+    </div>
+    <div class="item" style="--r:6deg">
+      <img src="https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=400&h=400&fit=crop" alt="CMIYGL Jacket">
+      <h3>ESTATE SALE JACKET</h3>
+      <p>🏆 Call Me If You Get Lost</p>
+      <button class="item-btn" data-product="estate">BUY →</button>
     </div>
   </div>
 </section>
 
 <section id="lookbookSection" class="lookbook">
   <h2 class="title">🌸 LOOKBOOK ARCHIVE 🌸</h2>
-  <div class="look-card c1"><img src="IMG_1501.jpeg" alt="look1"></div>
-  <div class="look-card c2"><img src="IMG_1502.jpeg" alt="look2"></div>
-  <div class="look-card c3"><img src="IMG_1503.jpeg" alt="look3"></div>
-  <div class="look-card c4"><img src="IMG_1504.jpeg" alt="look4"></div>
-  <div class="look-card c5"><img src="IMG_1502.jpeg" alt="look5"></div>
-  <div class="look-card c6"><img src="IMG_1503.jpeg" alt="look6"></div>
-  <div class="look-card c7"><img src="IMG_1501.jpeg" alt="look7"></div>
-  <div class="look-card c8"><img src="IMG_1498.jpeg" alt="look8"></div>
-  <div class="look-card c9"><img src="IMG_1500.jpeg" alt="look9"></div>
+  <div class="look-card c1"><img src="IMG_1501.jpeg" alt="Tyler look 1"></div>
+  <div class="look-card c2"><img src="IMG_1502.jpeg" alt="Tyler look 2"></div>
+  <div class="look-card c3"><img src="IMG_1503.jpeg" alt="Tyler look 3"></div>
+  <div class="look-card c4"><img src="IMG_1504.jpeg" alt="Tyler look 4"></div>
+  <div class="look-card c5"><img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=400&h=500&fit=crop" alt="Golf model"></div>
+  <div class="look-card c6"><img src="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=400&h=500&fit=crop" alt="Streetwear golf"></div>
+  <div class="look-card c7"><img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=400&h=500&fit=crop" alt="Tyler aesthetic"></div>
+  <div class="look-card c8"><img src="https://images.unsplash.com/photo-1617137984095-74e4e5e3613f?w=400&h=500&fit=crop" alt="Floral outfit"></div>
+  <div class="look-card c9"><img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=400&h=500&fit=crop" alt="Skate style"></div>
   
   <div class="note-sticker note1">✿ hand picked by Tyler ✿</div>
   <div class="note-sticker note2">🐺 ODD FUTURE FOREVER 🐺</div>
@@ -646,9 +723,7 @@ footer {
 </footer>
 
 <script>
-// Helper: show page modal (simulate different pages)
 function showPageModal(title, contentText, extraDetails = "") {
-  // remove existing modal if any
   const existing = document.querySelector('.page-modal');
   if(existing) existing.remove();
   
@@ -658,7 +733,7 @@ function showPageModal(title, contentText, extraDetails = "") {
     <div class="modal-content">
       <h2>${title}</h2>
       <p>${contentText}</p>
-      ${extraDetails ? `<p style="background:#fff36f; padding:10px; border-radius:40px;">✨ ${extraDetails} ✨</p>` : ''}
+      ${extraDetails ? `<p style="background:#6a2c8b; padding:10px; border-radius:40px; color:#e0d4ff;">✨ ${extraDetails} ✨</p>` : ''}
       <button class="modal-close">CLOSE →</button>
     </div>
   `;
@@ -666,7 +741,6 @@ function showPageModal(title, contentText, extraDetails = "") {
   modal.querySelector('.modal-close').addEventListener('click', () => modal.remove());
 }
 
-// Navigation events to different "pages"
 document.getElementById('navAbout').addEventListener('click', () => {
   showPageModal('ABOUT GOLF WANG', 'Created by Tyler, The Creator — Golf Wang is a rebellious blend of skate punk, luxury florals, and unapologetic weirdness. From "Cherry Bomb" to "IGOR", every drop tells a story. 🎨🐝');
 });
@@ -674,7 +748,7 @@ document.getElementById('navShop').addEventListener('click', () => {
   showPageModal('OFFICIAL GOLF ARCHIVE', 'Latest Drops: le FLEUR* cardigans, Cherry Bomb reissues, Wolf 10YR hoodies, and exclusive Converse collabs. Limited stock — grab before it\'s gone!', 'NEW ARRIVALS + SALE');
 });
 document.getElementById('navCollection').addEventListener('click', () => {
-  showPageModal('FLOWER BOY COLLECTION', 'Explore the scattered lookbook — floral prints, giant hats, cherry motifs, and pastel suits. Each piece curated by Tyler himself. Full 360 archive vibes.', 'Spring/Summer 2024 preview');
+  showPageModal('FLOWER BOY COLLECTION', 'Explore the scattered lookbook — floral prints, giant hats, cherry motifs, and pastel suits. Each piece curated by Tyler himself.', 'Spring/Summer 2024 preview');
 });
 document.getElementById('navClub').addEventListener('click', () => {
   showPageModal('GOLF CLUB MEMBERSHIP', 'Exclusive Tyler drops, Camp Flog Gnaw pre-sale access, unreleased beats, and members-only merch. Are you in?', 'Join the newsletter for golden tickets');
@@ -687,46 +761,44 @@ document.getElementById('homeLogo').addEventListener('click', () => {
   showPageModal('GOLF WANG', 'The house that Tyler built — where creativity has no limits. Stay weird. Stay floral. 🐝🌸');
 });
 
-// Shop product buttons -> different simulated pages per product
 const productBtns = document.querySelectorAll('.item-btn');
 productBtns.forEach(btn => {
   btn.addEventListener('click', (e) => {
     e.stopPropagation();
     const product = btn.getAttribute('data-product');
-    if(product === 'fallwinter') {
-      showPageModal('FALL/WINTER 24 DROP', 'Heavyweight floral cardigans, puffer jackets with bee motifs, and limited edition beanies. Pre-order now.', 'Exclusive Golf Wang tag');
-    } else if(product === 'converse') {
-      showPageModal('CONVERSE x GOLF le FLEUR*', 'The iconic One Star series returns with pastel suede, flower embroidery, and Tyler\'s signature grin. Limited pairs.', 'Size run: 5-13');
-    } else if(product === 'igor') {
-      showPageModal('IGOR SPECIAL EDITION VINYL', 'Pink & mint marble vinyl, poster + alternate cover art. The ultimate collector\'s piece for IGOR stans.', 'Limited to 5000 copies');
-    } else {
-      showPageModal('GOLF DROP', 'Explore the latest collection — each piece is a statement. Skate or die with Golf aesthetic.', 'Free shipping on orders $150+');
-    }
+    const details = {
+      flowerboy: ['FLOWER BOY HOODIE', 'Premium embroidered hoodie featuring Tyler\'s iconic bee design. 100% cotton, limited stock.', '🌸 Includes digital sticker pack'],
+      cardigan: ['LE FLEUR* CARDIGAN', 'Pastel patchwork cardigan with golf buttons. Handcrafted vibe.', '🌈 Tyler wore this on tour'],
+      cherrybomb: ['CHERRY BOMB VARSITY JACKET', 'Satin varsity jacket with cherry embroidery on back. True collector\'s item.', '🍒 1 of 500'],
+      cargo: ['GOLF CARGO PANTS', 'Utility pants with flower patches and multiple pockets. Relaxed fit.', '🐝 Bees on both knees'],
+      igor: ['IGOR TOUR TEE', 'Pink silhouette tee from the IGOR tour. Soft premium cotton.', '💖 Limited reissue'],
+      beanie: ['FLOWER BEANIE', 'Warm knit beanie with detachable bee charm. One size fits most.', '🌸 Perfect for winter'],
+      converse: ['CONVERSE x GOLF le FLEUR*', 'One Star ox with flower embroidery and special insole. Iconic collab.', '⚡ Tyler\'s favorite silhouette'],
+      estate: ['ESTATE SALE JACKET', 'CMIYGL tour jacket with estate sale graphic. Heavy duty nylon.', '🏆 Includes passport booklet']
+    };
+    const [name, desc, extra] = details[product] || ['GOLF DROP', 'Exclusive Golf Wang piece. Limited quantities remaining.', 'Free shipping on orders $150+'];
+    showPageModal(name, desc, extra);
   });
 });
 
-// Lookbook card clicks -> show piece details (different informational "pages")
 const lookCards = document.querySelectorAll('.look-card');
 lookCards.forEach((card, idx) => {
   card.addEventListener('click', () => {
     const pieces = [
-      '🌸 FLORAL CARDIGAN — limited edition', 
-      '🐝 GOLF le FLEUR* BEE HOODIE', 
-      '🍒 CHERRY BOMB VARSITY JACKET',
-      '⚡ ODD FUTURE DONUT TEE', 
-      '🌻 SUNFLOWER WORK PANTS',
-      '🎨 TYLER THE CREATOR x CONVERSE SAMPLE',
-      '💖 IGOR PINK SUIT BLAZER',
-      '🏆 CALL ME IF YOU GET LOST CHAIN',
-      '🌀 ESTATE SALE RELIC TEE'
+      '🌸 GOLF LE FLEUR* FLORAL SUIT — Tyler worn at CFG', 
+      '🐝 BEE EMBROIDERED DENIM JACKET — limited 2023', 
+      '🍒 CHERRY BOMB TOUR HOODIE — OG 2015 reissue',
+      '⚡ ODD FUTURE DONUT SWEATER — nostalgic grail', 
+      '🌻 SUNFLOWER CORDUROY PANTS — spring essential',
+      '💖 IGOR PINK BOMBER JACKET — statement piece',
+      '🏆 ESTATE SALE VELOUR TRACKSUIT — luxury leisure',
+      '🌀 FLOWER BOY BUCKET HAT — camp flog gnaw exclusive',
+      '🎨 GOLF WANG PUFFER VEST — limited collaboration'
     ];
-    const title = "✨ GOLF ARCHIVE SNEAK PEEK ✨";
-    const pieceName = pieces[idx % pieces.length];
-    showPageModal('LOOKBOOK SPOTLIGHT', `You uncovered: ${pieceName}. This piece embodies Tyler's vision — bold, rare, and iconic.`, 'Available in the Golf Wang app');
+    showPageModal('LOOKBOOK SPOTLIGHT', `You uncovered: ${pieces[idx % pieces.length]}. This piece embodies Tyler's bold, playful vision.`, 'Archival piece — DM for restock');
   });
 });
 
-// SUBSCRIBE functionality - fully working
 const subForm = document.getElementById('subscribeForm');
 const subFeedback = document.getElementById('subFeedback');
 
@@ -737,42 +809,5 @@ subForm.addEventListener('submit', (e) => {
   
   if(email && email.includes('@') && email.includes('.')) {
     subFeedback.innerHTML = `✅ YO, ${email} — you're officially in the GOLF CLUB! Expect weird fun emails, early access & Tyler's secret playlists. 🐝✿🌸`;
-    subFeedback.style.background = "#000";
-    subFeedback.style.color = "#fff36f";
-    subFeedback.style.padding = "12px 20px";
-    subFeedback.style.borderRadius = "60px";
-    emailInput.value = '';
-    
-    // show confetti-like message
-    const toast = document.createElement('div');
-    toast.innerText = "🌸 GOLF WANG ACCEPTED 🌸";
-    toast.style.position = "fixed";
-    toast.style.bottom = "20%";
-    toast.style.left = "50%";
-    toast.style.transform = "translateX(-50%)";
-    toast.style.background = "#fff36f";
-    toast.style.color = "#8B0000";
-    toast.style.padding = "14px 28px";
-    toast.style.borderRadius = "60px";
-    toast.style.fontWeight = "800";
-    toast.style.zIndex = "10001";
-    toast.style.boxShadow = "0 4px 20px black";
-    document.body.appendChild(toast);
-    setTimeout(() => toast.remove(), 2800);
-  } else {
-    subFeedback.innerHTML = `⚠️ please enter a valid email, weirdo! Tyler demands a real address. ⚠️`;
-    subFeedback.style.background = "#ffb8df";
-    subFeedback.style.color = "#8B0000";
-    subFeedback.style.padding = "10px 20px";
-    subFeedback.style.borderRadius = "60px";
-    setTimeout(() => {
-      if(subFeedback) subFeedback.innerHTML = '';
-    }, 3000);
-  }
-});
-
-// Smooth scroll to sections from buttons if needed (just for fun)
-console.log("GOLF WANG — Tyler mode activated");
-</script>
-</body>
-</html>
+    subFeedback.style.background = "#6a2c8b";
+    subFeedback.style.color = "#e0d4ff";
